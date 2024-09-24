@@ -1,0 +1,285 @@
+﻿.RootWindow
+{
+	width: 100%;
+	height: 100%;
+}
+
+.PropertyPanel
+{
+	background-color: #333333;
+
+	width: 100px;
+	height: 100%;
+
+	margin-left: 50px;
+
+	position: absolute;
+
+	transition-property: width, margin-left;
+	transition-duration: 0.25s;
+}
+
+.ModePanel
+{
+	background-color: #2d2d2d;
+
+	border-color: transparent;
+	border-width: 0px;
+	border-radius: 5px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+
+	max-width: 200%;
+	height: 35px;
+
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 0px;
+
+	flex-direction: row;
+
+	padding: 0px;
+}
+
+#ModeButton
+{
+	border-color: transparent;
+	border-radius: 0px;
+	border-width: 0px;
+
+	width: 50%;
+	height: 100%;
+
+	margin: 0px;
+
+	flex-direction: row;
+
+	transition-property: background-color;
+	transition-duration: 0.25s;
+}
+
+#ModeIcon
+{
+	width: 25px;
+	height: 25px;
+
+	margin-top: 5px;
+	flex-shrink: 0;
+
+	transition-property: left, -unity-background-image-tint-color;
+	transition-duration: 0.25s;
+}
+
+#ModeLabel
+{
+	-unity-font-definition: var(--font-genshin);
+	font-size: 15px;
+
+	margin: 0px;
+	margin-left: 7.5px;
+
+	transition-property: color;
+	transition-duration: 0.25s;
+}
+
+
+.AnimatorPanel
+{
+	background-color: #2d2d2d;
+
+	border-color: transparent;
+	border-radius: 5px;
+	border-width: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+
+	margin-top: 0px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+
+	padding-top: 10px;
+
+	max-width: 200%;
+
+	flex-grow: 1;
+}
+.AutomaticPanel
+{
+	background-color: #2d2d2d;
+
+	border-color: transparent;
+	border-radius: 5px;
+	border-width: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+
+	margin-top: 0px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+
+	padding-top: 10px;
+
+	max-width: 200%;
+
+	flex-grow: 1;
+
+	flex-direction: column;
+}
+
+.ClipsScroll
+{
+	background-color: transparent;
+
+	margin-top: 85px;
+
+	position: absolute;
+
+	justify-content: flex-start;
+
+	align-self: center;
+
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 30px;
+	padding-top: 5px;
+}
+
+.AnimatorField
+{
+	top: 15px;
+}
+
+.HandlerWindow
+{
+	-unity-background-image-tint-color: #565656;
+	background-image: resource("Textures/Backgrounds/Background 6");
+	background-size: auto;
+	border-color: transparent;
+	
+	width: 100%;
+	height: 100%;
+
+	flex-direction: row;
+
+	padding-top: 77px;
+}
+
+.ClipsTitle
+{
+	font-size: 13px;
+	-unity-font-definition: var(--font-genshin);
+
+	margin-top: 67.5px;
+
+	position: absolute;
+	align-self: flex-start;
+}
+
+.AnimatorTitle
+{
+	font-size: 13px;
+	-unity-font-definition: var(--font-genshin);
+
+	margin-top: 5px;
+
+	position: absolute;
+	align-self: flex-start;
+}
+
+.TitlePanel
+{
+	background-color: #2A2A2A;
+	border-color: transparent;
+
+	border-radius: 0px;
+
+	margin-left: 0px;
+
+	width: 100%;
+	height: 75px;
+
+	top: -1px;
+
+	position: absolute;
+}
+
+.MainWindow
+{
+	background-color: transparent;
+	position: relative;
+
+	margin-top: 150px;
+	margin-left: 152px;
+	margin-right: 1.5px;
+	margin-bottom: 153px;
+
+	flex-grow: 1;
+
+	width: 100%;
+	height: 100%;
+
+	align-self: center;
+
+	transition-property: margin-left;
+	transition-duration: 0.25s;
+
+	flex-direction: column;
+}
+
+.AutomaticEnableButton
+{
+	background-color: #1f1f1f;
+
+	border-width: 1.5px;
+	border-radius: 25px;
+
+	height: 50px;
+
+	margin: 5px;
+	margin-left: 12.5px;
+	margin-right: 12.5px;
+
+	flex-direction: row;
+
+	transition-property: background-color, border-color;
+	transition-duration: 0.25s;
+}
+
+.AutomaticEnableIcon
+{
+	background-color: transparent;
+
+	border-width: 0px;
+
+	background-image: resource("Textures/Animation Repathing/Power");
+	background-size: auto 75%;
+	background-position: center right;
+
+	height: 100%;
+	width: 100%;
+
+	right: 7.5px;
+
+	position: absolute;
+
+	transition-property: -unity-background-image-tint-color;
+	transition-duration: 0.2s;
+}
+
+.AutomaticEnableLabel
+{
+	font-size: 16.5px;
+	-unity-font-definition: var(--font-genshin);
+
+	margin-left: 10px;
+
+	transition-property: color;
+	transition-duration: 0.2s;
+
+	position: absolute;
+
+	align-self: center;
+}

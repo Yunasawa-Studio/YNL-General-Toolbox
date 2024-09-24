@@ -1,57 +1,61 @@
-﻿using UnityEditor;
-using UnityEditor.Search;
+﻿#if UNITY_EDITOR && YNL_UTILITIES
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Editors.Extensions;
 using YNL.Editors.Visuals;
 using YNL.Extensions.Addons;
 
-static class MySettingsProvider
+namespace YNL.GeneralToolbox.Settings
 {
-    private static ToolboxSettings settings;
-
-    [SettingsProvider]
-    public static SettingsProvider CreateMySettingsProvider()
+    static class MySettingsProvider
     {
-        var provider = new SettingsProvider("Preferences/▶ Yunasawa の Library/General Toolbox", SettingsScope.User)
+        private static ToolboxSettings settings;
+
+        [SettingsProvider]
+        public static SettingsProvider CreateMySettingsProvider()
         {
-            label = "General Toolbox",
-            activateHandler = (searchContext, rootElement) =>
+            var provider = new SettingsProvider("Preferences/▶ Yunasawa の Library/General Toolbox", SettingsScope.User)
             {
-                if (settings == null)
+                label = "General Toolbox",
+                activateHandler = (searchContext, rootElement) =>
                 {
-                    settings = ScriptableObject.CreateInstance<ToolboxSettings>();
-                    LoadSettings();
-                }
+                    if (settings == null)
+                    {
+                        settings = ScriptableObject.CreateInstance<ToolboxSettings>();
+                        LoadSettings();
+                    }
 
-                SerializedObject obj = new(settings);
-                SerializedProperty property = obj.FindProperty("Test");
+                    SerializedObject obj = new(settings);
+                    SerializedProperty property = obj.FindProperty("Test");
 
-                RepaintedTextField textField = new(property);
-                textField.Field.RegisterValueChangedCallback(evt => SaveSettings());
+                    RepaintedTextField textField = new(property);
+                    textField.Field.RegisterValueChangedCallback(evt => SaveSettings());
 
-                rootElement.SetPadding(5)
-                    .AddElements(new StyledComponentHeader()
-                    .SetGlobalColor("#FFFFFF")
-                    .AddIcon("Textures/Windows/Utilities Center/Editor Icon", MAddressType.Resources)
-                    .AddTitle("General Toolbox")
-                    .AddDocumentation("")
-                    .AddBottomSpace(10))
-                    .AddElements(textField);
-            },
-            keywords = new[] { "General", "Toolbox" }
-        };
+                    rootElement.SetPadding(5)
+                        .AddElements(new StyledComponentHeader()
+                        .SetGlobalColor("#FFFFFF")
+                        .AddIcon("Textures/Windows/Utilities Center/Editor Icon", MAddressType.Resources)
+                        .AddTitle("General Toolbox")
+                        .AddDocumentation("")
+                        .AddBottomSpace(10))
+                        .AddElements(textField);
+                },
+                keywords = new[] { "General", "Toolbox" }
+            };
 
-        return provider;
-    }
+            return provider;
+        }
 
-    private static void SaveSettings()
-    {
-        EditorPrefs.SetString("Test", settings.Test);
-    }
+        private static void SaveSettings()
+        {
+            EditorPrefs.SetString("Test", settings.Test);
+        }
 
-    private static void LoadSettings()
-    {
-        settings.Test = EditorPrefs.GetString("Test", "");
+        private static void LoadSettings()
+        {
+            settings.Test = EditorPrefs.GetString("Test", "");
+        }
     }
 }
+#endif

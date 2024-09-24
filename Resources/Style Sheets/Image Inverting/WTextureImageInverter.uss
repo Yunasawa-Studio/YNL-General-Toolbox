@@ -1,0 +1,130 @@
+.Main
+{
+	width: 100%;
+	height: 100%;
+}
+
+.WindowTitle
+{
+	background-color: #2A2A2A;
+	border-color: transparent;
+
+	border-radius: 0px;
+
+	margin-left: 100px;
+
+	width: 100%;
+	height: 75px;
+
+	top: -1px;
+
+	position: absolute;
+}
+
+.PropertyPanel
+{
+	background-color: #333333;
+
+	width: 200px;
+	height: 100%;
+
+	margin-left: 50px;
+
+	position: absolute;
+
+	transition-property: width, margin-left;
+	transition-duration: 0.25s;
+
+	flex-direction: column;
+
+	padding: 10px;
+}
+
+
+.HandlerWindow
+{
+	-unity-background-image-tint-color: #565656;
+	background-image: resource("Textures/Backgrounds/Background 6");
+	background-size: auto;
+	border-color: transparent;
+	
+	width: 100%;
+	height: 100%;
+
+	flex-direction: row;
+
+	padding-top: 77px;
+}
+
+.MainWindow
+{
+	background-color: transparent;
+	position: relative;
+
+	margin-top: 150px;
+	margin-left: 252px;
+	margin-right: 1.5px;
+	margin-bottom: 153px;
+
+	flex-grow: 1;
+
+	width: 100%;
+	height: 100%;
+
+	align-self: center;
+
+	transition-property: margin-left;
+	transition-duration: 0.25s;
+
+	flex-direction: column;
+}
+
+.ClearButton
+{
+	background-color: #1F1F1F;
+	border-color: transparent;
+
+	height: 30px;
+
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: -2.5px;
+	margin-bottom: 10px;
+
+	justify-content: center;
+
+	transition-property: background-color;
+	transition-duration: 0.25s;
+
+}
+.ClearButton:hover
+{
+	border-color: #5F5F5F;
+}
+
+.ClearLabel
+{
+	-unity-font-definition: var(--font-genshin);
+	font-size: 13px;
+
+	transition-property: font-size;
+	transition-duration: 0.25s;
+}
+.ClearLabel:hover
+{
+	font-size: 15px;
+}
+
+.SizeSlider
+{
+	background-color: transparent;
+
+	width: 100%;
+
+	position: absolute;
+
+	margin-top: 45px;
+	margin-left: -10px;
+
+	bottom: 0px;
+}
