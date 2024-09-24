@@ -8,6 +8,7 @@ using YNL.Editors.Windows;
 using YNL.Extensions.Methods;
 using YNL.Editors.Extensions;
 using System;
+using YNL.GeneralToolbox.Settings;
 
 namespace YNL.GeneralToolbox.Windows.AnimationRepathing
 {
@@ -120,13 +121,13 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
 
                 string[] paths = removedPaths.Select(i => i.path.Split('/')[^1]).ToArray();
 
-                AORSettings.AutomaticLog log = new(AORSettings.Event.Destroy, false, paths, paths);
+                AnimationRepathingSettings.AutomaticLog log = new(AnimationRepathingSettings.Event.Destroy, false, paths, paths);
                 Variable.AutomaticLogs.Add(log);
 
                 EditorApplication.RepaintAnimationWindow();
 
                 Visual.UpdateLogPanel();
-                Variable.SaveData();
+                Variable.SaveSettings();
             }
         }
 
@@ -230,13 +231,13 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
 
             if (isShowLog)
             {
-                AORSettings.Event @event = renamedObjects.Length == 1 ? AORSettings.Event.RenameSingle : AORSettings.Event.RenameMultiple;
+                AnimationRepathingSettings.Event @event = renamedObjects.Length == 1 ? AnimationRepathingSettings.Event.RenameSingle : AnimationRepathingSettings.Event.RenameMultiple;
 
-                AORSettings.AutomaticLog log = new(@event, isSucceeded, oldNames, newNames);
+                AnimationRepathingSettings.AutomaticLog log = new(@event, isSucceeded, oldNames, newNames);
                 Variable.AutomaticLogs.Add(log);
 
                 Visual.UpdateLogPanel();
-                Variable.SaveData();
+                Variable.SaveSettings();
             }
         }
 
@@ -252,7 +253,7 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
             bool newPathExisted = false;
             bool isSucceeded = true;
             bool isShowLog = false;
-            AORSettings.Event @event = AORSettings.Event.MoveSucceed;
+            AnimationRepathingSettings.Event @event = AnimationRepathingSettings.Event.MoveSucceed;
             List<string> failedNames = new();
 
             foreach (var movedObject in movedObjects)
@@ -299,7 +300,7 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
                             isShowLog = true;
                             isSucceeded = false;
 
-                            @event = AORSettings.Event.MoveConflict;
+                            @event = AnimationRepathingSettings.Event.MoveConflict;
                             failedNames.AddDistinct(movedObject.obj.name);
 
                             EditorApplication.RepaintAnimationWindow();
@@ -314,7 +315,7 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
                                 isShowLog = true;
                                 isSucceeded = true;
 
-                                @event = AORSettings.Event.MoveSucceed;
+                                @event = AnimationRepathingSettings.Event.MoveSucceed;
 
                                 failedNames.AddDistinct(movedObject.obj.name);
                             }
@@ -334,7 +335,7 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
                         isShowLog = true;
                         isSucceeded = false;
 
-                        @event = AORSettings.Event.MoveOutbound;
+                        @event = AnimationRepathingSettings.Event.MoveOutbound;
                         failedNames.AddDistinct(movedObject.obj.name);
 
                         EditorApplication.RepaintAnimationWindow();
@@ -351,11 +352,11 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
 
             if (isShowLog)
             {
-                AORSettings.AutomaticLog log = new(@event, isSucceeded, failedNames.ToArray(), failedNames.ToArray());
+                AnimationRepathingSettings.AutomaticLog log = new(@event, isSucceeded, failedNames.ToArray(), failedNames.ToArray());
                 Variable.AutomaticLogs.Add(log);
 
                 Visual.UpdateLogPanel();
-                Variable.SaveData();
+                Variable.SaveSettings();
             }
         }
         #endregion

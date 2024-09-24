@@ -1,5 +1,7 @@
+#if UNITY_EDITOR && YNL_EDITOR && YNL_UTILITIES
 using UnityEditor;
 using YNL.Editors.Visuals;
+using YNL.Extensions.Methods;
 
 namespace YNL.GeneralToolbox.Windows.AnimationRepathing
 {
@@ -23,5 +25,11 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         {
             Handler.OnSelectionChange();
         }
+
+        public void OnGUI()
+        {
+            if (!Visual.IsNull()) Visual.OnGUI();
+        }
     }
 }
+#endif

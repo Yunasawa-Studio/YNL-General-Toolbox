@@ -111,6 +111,8 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         public void OnGUI()
         {
             if (!_createdAllElements) return;
+
+            ReferencedAnimator.OnGUI();
         }
 
         private void OnDetechFromPanel(DetachFromPanelEvent evt)
@@ -500,7 +502,7 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         {
             Variable.AutomaticLogs.Clear();
             RefreshLogPanel();
-            Variable.SaveData();
+            Variable.SaveSettings();
         }
         public static void RefreshLogPanel()
         {

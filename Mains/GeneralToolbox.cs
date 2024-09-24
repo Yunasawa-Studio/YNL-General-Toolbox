@@ -5,6 +5,7 @@ using YNL.Extensions.Methods;
 using YNL.Editors.Visuals;
 using YNL.Editors.Extensions;
 using UnityEngine.UIElements;
+using YNL.GeneralToolbox.Settings;
 
 namespace YNL.GeneralToolbox.Windows
 {
@@ -12,6 +13,7 @@ namespace YNL.GeneralToolbox.Windows
     {
         #region ▶ Editor Asset Fields/Properties
         private const string _windowIconPath = "Textures/General/Editor Window Icon";
+        private static ToolboxSettings _toolboxSettings => ToolboxSettingsProvider.Settings;
         #endregion
 
         #region ▶ Visual Elements
@@ -23,16 +25,6 @@ namespace YNL.GeneralToolbox.Windows
         #endregion
 
         #region ▶ General Fields/Properties
-        private static CenterData _staticCenterData;
-        private CenterData _centerData
-        {
-            get
-            {
-                if (_staticCenterData.IsNull()) _staticCenterData = "Editor Toolbox Data".LoadResource<CenterData>();
-                return _staticCenterData;
-            }
-        }
-
         private float _tagPanelWidth = 200;
 
         private IMain _selectedWindow;
@@ -78,7 +70,7 @@ namespace YNL.GeneralToolbox.Windows
             ObjectRenamerWindow = new AnimationRepathing.Main(this, WindowTagPanel);
             ImageInverterWindow = new ImageInverting.Main(this, WindowTagPanel);
 
-            SwitchWindow(_centerData.CurrentWindow);
+            SwitchWindow(_toolboxSettings.CurrentWindow);
         }
 
         public void OnGUI()
@@ -106,9 +98,9 @@ namespace YNL.GeneralToolbox.Windows
                     break;
             }
             rootVisualElement.Add(WindowTagPanel);
-            _centerData.CurrentWindow = windowTag;
-            EditorUtility.SetDirty(_centerData);
-            AssetDatabase.SaveAssets();
+
+            _toolboxSettings.CurrentWindow = windowTag;
+            _toolboxSettings.SaveSettings();
         }
 
         private void SwitchWindow(IMain window)

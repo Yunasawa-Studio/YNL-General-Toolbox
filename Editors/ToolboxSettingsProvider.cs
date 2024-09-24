@@ -5,12 +5,12 @@ using UnityEngine.UIElements;
 using YNL.Editors.Extensions;
 using YNL.Editors.Visuals;
 using YNL.Extensions.Addons;
-
+using YNL.Extensions.Methods;
 namespace YNL.GeneralToolbox.Settings
 {
-    static class MySettingsProvider
+    public static class ToolboxSettingsProvider
     {
-        private static ToolboxSettings settings;
+        public static ToolboxSettings Settings;
 
         [SettingsProvider]
         public static SettingsProvider CreateMySettingsProvider()
@@ -20,41 +20,37 @@ namespace YNL.GeneralToolbox.Settings
                 label = "General Toolbox",
                 activateHandler = (searchContext, rootElement) =>
                 {
-                    if (settings == null)
+                    if (Settings == null)
                     {
-                        settings = ScriptableObject.CreateInstance<ToolboxSettings>();
-                        LoadSettings();
+                        Settings = ScriptableObject.CreateInstance<ToolboxSettings>();
+                        Settings.LoadSettings();
                     }
 
-                    SerializedObject obj = new(settings);
-                    SerializedProperty property = obj.FindProperty("Test");
+                    SerializedObject obj = new(Settings);
+                    SerializedProperty animaionRepathing = obj.FindProperty("AnimationRepathingData");
+                    SerializedProperty currentWindow = obj.FindProperty("CurrentWindow");
 
-                    RepaintedTextField textField = new(property);
-                    textField.Field.RegisterValueChangedCallback(evt => SaveSettings());
+                    RepaintedTextField animationRepathingField = new(animaionRepathing);
+                    animationRepathingField.Input.SetBorderRadius(0);
+                    animationRepathingField.Field.RegisterValueChangedCallback(evt => Settings.SaveSettings());
+
+                    RepaintedEnumField currentWindowField = new(currentWindow, "YNL.GeneralToolbox.Windows.WindowType");
+                    currentWindowField.Enum.SetBorderRadius(0);
+                    currentWindowField.Field.SetEnabled(false);
 
                     rootElement.SetPadding(5)
                         .AddElements(new StyledComponentHeader()
                         .SetGlobalColor("#FFFFFF")
-                        .AddIcon("Textures/Windows/Utilities Center/Editor Icon", MAddressType.Resources)
-                        .AddTitle("General Toolbox")
+                        .AddIcon("Textures/General/Editor Icon", MAddressType.Resources)
+                        .AddTitle("General Toolbox (Pro)")
                         .AddDocumentation("")
                         .AddBottomSpace(10))
-                        .AddElements(textField);
+                        .AddElements(animationRepathingField, currentWindowField);
                 },
                 keywords = new[] { "General", "Toolbox" }
             };
 
             return provider;
-        }
-
-        private static void SaveSettings()
-        {
-            EditorPrefs.SetString("Test", settings.Test);
-        }
-
-        private static void LoadSettings()
-        {
-            settings.Test = EditorPrefs.GetString("Test", "");
         }
     }
 }

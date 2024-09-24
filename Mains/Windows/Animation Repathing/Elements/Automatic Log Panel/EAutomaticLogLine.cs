@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 using YNL.Editors.Extensions;
 using YNL.Editors.Visuals;
 using YNL.Extensions.Methods;
+using YNL.GeneralToolbox.Settings;
 
 namespace YNL.GeneralToolbox.Windows.AnimationRepathing
 {
@@ -19,7 +20,7 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         public Button Count;
         public VisualElement PathContainer;
 
-        public EAutomaticLogLine(AORSettings.AutomaticLog log) : base()
+        public EAutomaticLogLine(AnimationRepathingSettings.AutomaticLog log) : base()
         {
             this.AddStyle(USS_StyleSheet, ESheet.Font).AddClass("Root");
 
@@ -30,7 +31,7 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
             Path = new FlexibleEllipsisButton().AddClass("Path").AddClass("OldPath");
             PathContainer = new VisualElement().AddClass("PathContainer").AddElements(Path);
 
-            if (log.Event == AORSettings.Event.Destroy)
+            if (log.Event == AnimationRepathingSettings.Event.Destroy)
             {
                 if (!log.OldNames.IsEmpty())
                 {
@@ -46,7 +47,7 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
 
                 State.SetBackgroundImage("Textures/Icons/Remove").SetBackgroundColor("#ffdb4a");
             }
-            else if (log.Event == AORSettings.Event.RenameSingle || log.Event == AORSettings.Event.RenameMultiple)
+            else if (log.Event == AnimationRepathingSettings.Event.RenameSingle || log.Event == AnimationRepathingSettings.Event.RenameMultiple)
             {
                 if (!log.OldNames.IsEmpty())
                 {
@@ -81,15 +82,15 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
                         else
                         {
                             string oldNames = String.Join(", ", log.OldNames);
-                            if (log.Event == AORSettings.Event.RenameSingle) Path.SetText($"Can not rename {oldNames} to {log.NewNames[0]} as it is taken by another object.");
-                            if (log.Event == AORSettings.Event.RenameMultiple) Path.SetText($"Can not rename {oldNames} to {log.NewNames[0]} as one of them is an animated object.");
+                            if (log.Event == AnimationRepathingSettings.Event.RenameSingle) Path.SetText($"Can not rename {oldNames} to {log.NewNames[0]} as it is taken by another object.");
+                            if (log.Event == AnimationRepathingSettings.Event.RenameMultiple) Path.SetText($"Can not rename {oldNames} to {log.NewNames[0]} as one of them is an animated object.");
                         }
                     }
 
                     State.SetBackgroundImage("Textures/Icons/Rename");
                 }
             }
-            else if (log.Event == AORSettings.Event.MoveSucceed || log.Event == AORSettings.Event.MoveConflict || log.Event == AORSettings.Event.MoveOutbound)
+            else if (log.Event == AnimationRepathingSettings.Event.MoveSucceed || log.Event == AnimationRepathingSettings.Event.MoveConflict || log.Event == AnimationRepathingSettings.Event.MoveOutbound)
             {
                 if (!log.OldNames.IsEmpty())
                 {
@@ -100,15 +101,15 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
 
                     string oldNames = String.Join(", ", log.OldNames);
                     
-                    if (log.Event == AORSettings.Event.MoveSucceed)
+                    if (log.Event == AnimationRepathingSettings.Event.MoveSucceed)
                     {
                         Path.SetText($"Moving {oldNames} succeeded.");
                     }
-                    else if (log.Event == AORSettings.Event.MoveConflict)
+                    else if (log.Event == AnimationRepathingSettings.Event.MoveConflict)
                     {
                         Path.SetText($"Can not move {oldNames}, the destination already contains object with the same name.");
                     }
-                    else if (log.Event == AORSettings.Event.MoveOutbound)
+                    else if (log.Event == AnimationRepathingSettings.Event.MoveOutbound)
                     {
                         Path.SetText($"Can not move {oldNames}, the destination is outside of the previous animator object.");
                     }
