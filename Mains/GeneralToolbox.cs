@@ -22,6 +22,10 @@ namespace YNL.GeneralToolbox.Windows
         public ImageResizing.Main ImageResizerWindow;
         public ImageInverting.Main ImageInverterWindow;
         public AnimationRepathing.Main ObjectRenamerWindow;
+
+        private StyledWindowTag _imageResizingTag;
+        private StyledWindowTag _imageInvertingTag;
+        private StyledWindowTag _animationRepathingTag;
         #endregion
 
         #region ▶ General Fields/Properties
@@ -58,12 +62,16 @@ namespace YNL.GeneralToolbox.Windows
 
             Texture2D waitIcon = Resources.Load<Texture2D>("Textures/Icons/Time1");
 
+            _imageResizingTag = new StyledWindowTag(textureImageResizerIcon, "Image Resizer", "Texture", Color.white, _tagPanelWidth - 25, () => SwitchWindow(WindowType.ImageResizing));
+            _imageInvertingTag = new StyledWindowTag(textureImageInverterIcon, "Image Inverter", "Texture", Color.white, _tagPanelWidth - 25, () => SwitchWindow(WindowType.ImageInverting));
+            _animationRepathingTag = new StyledWindowTag(animationObjectRenamerIcon, "Object Renamer", "Animation", Color.white, _tagPanelWidth - 25, () => SwitchWindow(WindowType.AnimationRepathing));
+
             WindowTagPanel = new(windowIcon, "General Toolbox", "Center", _tagPanelWidth, new StyledWindowTag[]
             {
-            new StyledWindowTag(textureImageResizerIcon, "Image Resizer", "Texture", Color.white, _tagPanelWidth - 25, () => SwitchWindow(WindowType.ImageResizing)),
-            new StyledWindowTag(textureImageInverterIcon, "Image Inverter", "Texture", Color.white, _tagPanelWidth - 25, () => SwitchWindow(WindowType.ImageInverting)),
-            new StyledWindowTag(animationObjectRenamerIcon, "Object Renamer", "Animation", Color.white, _tagPanelWidth - 25, () => SwitchWindow(WindowType.AnimationRepathing)),
-            new StyledWindowTag(waitIcon, "Coming Soon", "", Color.white, _tagPanelWidth - 25, () => SwitchWindow(WindowType.None))
+                _imageResizingTag,
+                _imageInvertingTag,
+                _animationRepathingTag,
+                new StyledWindowTag(waitIcon, "Coming Soon", "", Color.white, _tagPanelWidth - 25, () => SwitchWindow(WindowType.None))
             });
 
             ImageResizerWindow = new ImageResizing.Main(this, WindowTagPanel);
@@ -71,6 +79,7 @@ namespace YNL.GeneralToolbox.Windows
             ImageInverterWindow = new ImageInverting.Main(this, WindowTagPanel);
 
             SwitchWindow(_toolboxSettings.CurrentWindow);
+            SelectTag(_toolboxSettings.CurrentWindow);
         }
 
         public void OnGUI()
@@ -101,6 +110,16 @@ namespace YNL.GeneralToolbox.Windows
 
             _toolboxSettings.CurrentWindow = windowTag;
             _toolboxSettings.SaveSettings();
+        }
+
+        private void SelectTag(WindowType type)
+        {
+            switch (type)
+            {
+                case WindowType.ImageResizing: _imageResizingTag.Select(); break;
+                case WindowType.ImageInverting: _imageInvertingTag.Select(); break;
+                case WindowType.AnimationRepathing: _animationRepathingTag.Select(); break;
+            }
         }
 
         private void SwitchWindow(IMain window)

@@ -608,7 +608,6 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
             AssetDatabase.StopAssetEditing();
             EditorUtility.ClearProgressBar();
             Visual.PresentAllClips(ClipColors);
-            //_main.Root.Repaint();
 
             done?.Invoke();
         }
@@ -621,7 +620,7 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         public void SwitchAutomaticMode()
         {
             Variable.IsAutomaticOn = !Variable.IsAutomaticOn;
-            _main.Visual.UpdateAutomatic(true);
+            Visual.UpdateAutomatic(true);
             Variable.OnModeChanged?.Invoke();
         }
         #endregion

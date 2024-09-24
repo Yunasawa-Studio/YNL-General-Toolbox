@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEditor.Toolbars;
 using YNL.Editors.Extensions;
+using YNL.Extensions.Methods;
 
 namespace YNL.GeneralToolbox.Windows.AnimationRepathing
 {
@@ -35,6 +36,8 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
             {
                 Variable.IsAutomaticOn = !Variable.IsAutomaticOn;
                 Variable.OnModeChanged?.Invoke();
+
+                Visual.UpdateAutomatic(false);
 
                 UpdateButton();
             }

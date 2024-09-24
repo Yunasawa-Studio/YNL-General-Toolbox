@@ -5,12 +5,24 @@ using UnityEngine.UIElements;
 using YNL.Editors.Extensions;
 using YNL.Editors.Visuals;
 using YNL.Extensions.Addons;
-using YNL.Extensions.Methods;
 namespace YNL.GeneralToolbox.Settings
 {
     public static class ToolboxSettingsProvider
     {
-        public static ToolboxSettings Settings;
+        private static ToolboxSettings _settings;
+        public static ToolboxSettings Settings
+        {
+            get
+            {
+                if (_settings == null)
+                {
+                    _settings = ScriptableObject.CreateInstance<ToolboxSettings>();
+                    _settings.LoadSettings();
+                    return _settings;
+                }
+                else return _settings;
+            }
+        }
 
         [SettingsProvider]
         public static SettingsProvider CreateMySettingsProvider()
@@ -20,19 +32,17 @@ namespace YNL.GeneralToolbox.Settings
                 label = "General Toolbox",
                 activateHandler = (searchContext, rootElement) =>
                 {
-                    if (Settings == null)
-                    {
-                        Settings = ScriptableObject.CreateInstance<ToolboxSettings>();
-                        Settings.LoadSettings();
-                    }
+                    _settings.LoadSettings();
 
-                    SerializedObject obj = new(Settings);
+                    SerializedObject obj = new(_settings);
                     SerializedProperty animaionRepathing = obj.FindProperty("AnimationRepathingData");
                     SerializedProperty currentWindow = obj.FindProperty("CurrentWindow");
 
                     RepaintedTextField animationRepathingField = new(animaionRepathing);
+                    animationRepathingField.SetAsReadOnly();
                     animationRepathingField.Input.SetBorderRadius(0);
                     animationRepathingField.Field.RegisterValueChangedCallback(evt => Settings.SaveSettings());
+                    animationRepathingField.Field.multiline = true;
 
                     RepaintedEnumField currentWindowField = new(currentWindow, "YNL.GeneralToolbox.Windows.WindowType");
                     currentWindowField.Enum.SetBorderRadius(0);
@@ -45,7 +55,7 @@ namespace YNL.GeneralToolbox.Settings
                         .AddTitle("General Toolbox (Pro)")
                         .AddDocumentation("")
                         .AddBottomSpace(10))
-                        .AddElements(animationRepathingField, currentWindowField);
+                        .AddElements(currentWindowField, animationRepathingField);
                 },
                 keywords = new[] { "General", "Toolbox" }
             };

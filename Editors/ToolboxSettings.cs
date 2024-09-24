@@ -35,10 +35,12 @@ namespace YNL.GeneralToolbox.Settings
         private void SetSettings()
         {
             EditorPrefs.SetString("Animation Repathing", AnimationRepathingData);
+            EditorPrefs.SetInt("Current Toolbox Window", (int)CurrentWindow);
         }
         private void GetSettings()
         {
-            AnimationRepathingData = EditorPrefs.GetString("Animation Repathing", JsonConvert.SerializeObject(AnimationRepathing));
+            AnimationRepathingData = EditorPrefs.GetString("Animation Repathing", JsonConvert.SerializeObject(AnimationRepathing, Formatting.Indented));
+            CurrentWindow = (WindowType)EditorPrefs.GetInt("Current Toolbox Window", 0);
         }
     }
 }
