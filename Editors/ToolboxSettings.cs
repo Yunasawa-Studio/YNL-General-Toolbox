@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
-using YNL.Extensions.Methods;
 using YNL.GeneralToolbox.Windows;
 
 namespace YNL.GeneralToolbox.Settings

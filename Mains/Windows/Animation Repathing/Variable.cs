@@ -29,5 +29,8 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         public static Action OnModeChanged;
 
         public static void SaveSettings() => ToolboxSettings?.SaveSettings();
+
+
+        public static Action<Visual> OnVisualCreated;
     }
 }

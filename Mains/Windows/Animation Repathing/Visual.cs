@@ -11,7 +11,7 @@ using System;
 
 namespace YNL.GeneralToolbox.Windows.AnimationRepathing
 {
-    public class Visual : EVisual
+    public partial class Visual : EVisual
     {
         private const string _styleSheet = "Style Sheets/Animation Repathing/Visual";
 
@@ -100,6 +100,8 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
             RefreshLogPanel();
 
             _createdAllElements = true;
+
+            Variable.OnVisualCreated?.Invoke(this);
         }
 
         public void OnGUI()
