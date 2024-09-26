@@ -244,8 +244,8 @@
 
 	flex-direction: row;
 
-	transition-property: background-color, border-color;
-	transition-duration: 0.25s;
+	transition-property: background-color, border-color, border-radius, top;
+	transition-duration: 0.25s, 0.25s, 0.25s, 0.2s;
 }
 
 .AutomaticEnableIcon
@@ -282,4 +282,43 @@
 	position: absolute;
 
 	align-self: center;
+}
+
+.FunctionButton
+{
+	padding: 0px;
+
+	overflow: hidden;
+}
+
+.FunctionEnableButton
+{
+	background-color: #1f1f1f;
+	background-size: 30%;
+	-unity-background-image-tint-color: #afafaf;
+
+	border-radius: 0px;
+	border-width: 0px;
+
+	top: 2.5px;
+
+	width: 32.855%;
+
+	margin: 0px;
+
+	transition-property: background-color, -unity-background-image-tint-color;
+	transition-duration: 0.2s;
+}
+.FunctionEnableButton:hover
+{
+	background-color: #292929;
+}
+
+.Line
+{
+	background-color: #216340;
+
+	width: 1.5px;
+
+	transition-duration: 0.25s;
 }
