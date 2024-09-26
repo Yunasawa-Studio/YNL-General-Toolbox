@@ -150,12 +150,16 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
                 PropertyPanel.SetMarginLeft(TagPanelWidth);
                 _windowTitlePanel.Panel.SetMarginLeft(TagPanelWidth - 50);
                 AnimatorWindow.SetMarginLeft(TagPanelWidth + 102);
+
+                Variable.OnTagPanelExpanded?.Invoke();
             };
             _tagPanel.OnPointerExit += () =>
             {
                 PropertyPanel.SetMarginLeft(50);
                 _windowTitlePanel.Panel.SetMarginLeft(0);
                 AnimatorWindow.SetMarginLeft(152);
+
+                Variable.OnTagPanelCollapsed?.Invoke();
             };
         }
         private void PropertyPanelHandler()
