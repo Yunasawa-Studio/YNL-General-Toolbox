@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 using YNL.Editors.Extensions;
 using YNL.Editors.Visuals;
 using YNL.Extensions.Addons;
+
 namespace YNL.GeneralToolbox.Settings
 {
     public static class ToolboxSettingsProvider
@@ -32,17 +33,10 @@ namespace YNL.GeneralToolbox.Settings
                 label = "General Toolbox",
                 activateHandler = (searchContext, rootElement) =>
                 {
-                    _settings.LoadSettings();
+                    Settings.LoadSettings();
 
-                    SerializedObject obj = new(_settings);
-                    SerializedProperty animaionRepathing = obj.FindProperty("AnimationRepathingData");
+                    SerializedObject obj = new(Settings);
                     SerializedProperty currentWindow = obj.FindProperty("CurrentWindow");
-
-                    RepaintedTextField animationRepathingField = new(animaionRepathing);
-                    animationRepathingField.SetAsReadOnly();
-                    animationRepathingField.Input.SetBorderRadius(0);
-                    animationRepathingField.Field.RegisterValueChangedCallback(evt => Settings.SaveSettings());
-                    animationRepathingField.Field.multiline = true;
 
                     RepaintedEnumField currentWindowField = new(currentWindow, "YNL.GeneralToolbox.Windows.WindowType");
                     currentWindowField.Enum.SetBorderRadius(0);
@@ -52,10 +46,10 @@ namespace YNL.GeneralToolbox.Settings
                         .AddElements(new StyledComponentHeader()
                         .SetGlobalColor("#FFFFFF")
                         .AddIcon("Textures/General/Editor Icon", MAddressType.Resources)
-                        .AddTitle("General Toolbox (Pro)")
+                        .AddTitle("General Toolbox")
                         .AddDocumentation("")
                         .AddBottomSpace(10))
-                        .AddElements(currentWindowField, animationRepathingField);
+                        .AddElements(currentWindowField);
                 },
                 keywords = new[] { "General", "Toolbox" }
             };

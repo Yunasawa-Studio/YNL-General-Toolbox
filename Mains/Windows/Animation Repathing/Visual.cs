@@ -18,38 +18,35 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         #region ▶ Visual Elements
         private StyledWindowTitle _windowTitlePanel;
         private StyledWindowTagPanel _tagPanel;
-        private FlexibleInteractImage _propertyPanel;
+        public FlexibleInteractImage PropertyPanel;
 
-        private Button _animatorPanel;
+        public Button AnimatorPanel;
         private static ScrollView _clipsScroll;
 
-        private Button _automaticPanel;
+        //private Button _automaticPanel;
 
         private Label _referencedAnimatorTitle;
         private Label _referencedClipsTitle;
         public static RepaintedComponentField<Animator> ReferencedAnimator;
 
-        private VisualElement _handlerWindow;
+        public VisualElement HandlerWindow;
 
-        private Image _animatorWindow;
+        public Image AnimatorWindow;
 
         private EInputNamePanel _inputNamePanel;
         private static ERootNamePanel _rootNamePanel;
 
-        private Image _automaticWindow;
-        private static EAutomaticLogPanel _automaticLogPanel;
+        //private Image _automaticWindow;
+        //private static EAutomaticLogPanel _automaticLogPanel;
 
-        private Button _modePanel;
-        private Button _autoButton;
-        private Image _autoIcon;
-        private Label _autoLabel;
-        private Button _manualButton;
-        private Image _manualIcon;
-        private Label _manualLabel;
+        public Button ModePanel;
+        public Button ManualButton;
+        public Image ManualIcon;
+        public Label ManualLabel;
 
-        private static FlexibleInteractButton _enableButton;
-        private static Image _enableIcon;
-        private static Label _enableLabel;
+        //private static FlexibleInteractButton _enableButton;
+        //private static Image _enableIcon;
+        //private static Label _enableLabel;
         #endregion
         #region ▶ Style Classes
         private const string _class_root = "RootWindow";
@@ -64,8 +61,8 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         #endregion
         #region ▶ General Fields/Properties
         private bool _createdAllElements = false;
-        private float _tagPanelWidth = 200;
-        private MRange _propertyPanelWidth = new MRange(100, 300);
+        public float TagPanelWidth = 200;
+        public MRange PropertyPanelWidth = new MRange(100, 300);
 
         private Main _main;
 
@@ -92,16 +89,11 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
             PropertyPanelHandler();
             HandlerWindowCreator();
 
-            this.AddElements(_handlerWindow, _windowTitlePanel, _propertyPanel);
-
-            UpdateMode(false);
-            UpdateAutomatic(false);
-
-            RefreshLogPanel();
+            this.AddElements(HandlerWindow, _windowTitlePanel, PropertyPanel);
 
             _createdAllElements = true;
 
-            Variable.OnVisualCreated?.Invoke(this);
+            Variable.OnVisualCreated?.Invoke(this, _main.Handler);
         }
 
         public void OnGUI()
@@ -114,35 +106,11 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         #region ▶ Editor Initializing
         private void CreateElements()
         {
-            #region Mode Button Fields
-            _autoIcon = new Image().SetName("ModeIcon").SetBackgroundImage("Textures/Animation Repathing/Auto").SetMarginLeft(10).SetLeft(-5);
-            _autoLabel = new Label().SetName("ModeLabel").SetText("Automatic");
-            _autoButton = new Button().SetName("ModeButton").AddElements(_autoIcon, _autoLabel);
-            _autoButton.clicked += () => _main.Handler.ChangeMode(true);
+            ManualIcon = new Image().SetName("ModeIcon").SetBackgroundImage("Textures/Animation Repathing/Manual").SetMarginLeft(90).SetLeft(-62.5f);
+            ManualLabel = new Label().SetName("ModeLabel").SetText("Manual");
+            ManualButton = new Button().SetName("ModeButton").AddElements(ManualIcon, ManualLabel).SetBackgroundColor("#1f1f1f").SetWidth(100, true);
 
-            _manualIcon = new Image().SetName("ModeIcon").SetBackgroundImage("Textures/Animation Repathing/Manual").SetMarginLeft(20).SetLeft(-15);
-            _manualLabel = new Label().SetName("ModeLabel").SetText("Manual");
-            _manualButton = new Button().SetName("ModeButton").AddElements(_manualIcon, _manualLabel);
-            _manualButton.clicked += () => _main.Handler.ChangeMode(false);
-
-            UpdateModePanel();
-
-            _autoLabel.SetColor("#00000000");
-            _manualLabel.SetColor("#00000000");
-
-            _modePanel = new Button().AddClass("ModePanel").AddElements(_autoButton, _manualButton);
-            #endregion
-
-            #region Automatic Panel
-            _enableIcon = new Image().AddClass("AutomaticEnableIcon");
-
-            _enableLabel = new Label().AddClass("AutomaticEnableLabel").SetColor("#00000000");
-
-            _enableButton = new FlexibleInteractButton().AddClass("AutomaticEnableButton").AddElements(_enableLabel, _enableIcon);
-            _enableButton.clicked += _main.Handler.SwitchAutomaticMode;
-
-            _automaticPanel = new Button().AddClass("AutomaticPanel").AddElements(_enableButton);
-            #endregion
+            ModePanel = new Button().AddClass("ModePanel").AddElements(ManualButton);
 
             #region Animator Panel
             _referencedClipsTitle = new Label("Animation Clips:").AddClass("ClipsTitle");
@@ -152,12 +120,13 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
             ReferencedAnimator = new RepaintedComponentField<Animator>(Handler.ReferencedAnimator);
             ReferencedAnimator.Background.OnDragPerform += (obj) => PresentAllPaths();
 
-            _animatorPanel = new Button()
+            AnimatorPanel = new Button()
                 .AddSpace(0, 10).AddClass("AnimatorPanel")
                 .AddElements(_referencedAnimatorTitle, ReferencedAnimator, _referencedClipsTitle, _clipsScroll);
             #endregion
 
-            _propertyPanel = new FlexibleInteractImage().AddElements(_modePanel);
+            //_propertyPanel = new FlexibleInteractImage().AddElements(_modePanel);
+            PropertyPanel = new FlexibleInteractImage().AddElements(ModePanel, AnimatorPanel);
 
             _windowTitlePanel = new(_windowIcon.LoadResource<Texture2D>(), _windowTitle, _windowSubtitle);
         }
@@ -165,7 +134,7 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         {
             this.AddClass(_class_root);
 
-            _propertyPanel.AddClass(_class_propertyPanel);
+            PropertyPanel.AddClass(_class_propertyPanel);
             _clipsScroll.AddClass(_class_clipsScroll);
 
             ReferencedAnimator.AddClass(_class_animatorField);
@@ -178,50 +147,42 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         {
             _tagPanel.OnPointerEnter += () =>
             {
-                _propertyPanel.SetMarginLeft(_tagPanelWidth);
-                _windowTitlePanel.Panel.SetMarginLeft(_tagPanelWidth - 50);
-                _animatorWindow.SetMarginLeft(_tagPanelWidth + 102);
-                _automaticWindow.SetMarginLeft(_tagPanelWidth + 102);
+                PropertyPanel.SetMarginLeft(TagPanelWidth);
+                _windowTitlePanel.Panel.SetMarginLeft(TagPanelWidth - 50);
+                AnimatorWindow.SetMarginLeft(TagPanelWidth + 102);
             };
             _tagPanel.OnPointerExit += () =>
             {
-                _propertyPanel.SetMarginLeft(50);
+                PropertyPanel.SetMarginLeft(50);
                 _windowTitlePanel.Panel.SetMarginLeft(0);
-                _animatorWindow.SetMarginLeft(152);
-                _automaticWindow.SetMarginLeft(152);
+                AnimatorWindow.SetMarginLeft(152);
             };
         }
         private void PropertyPanelHandler()
         {
-            _propertyPanel.OnPointerEnter = () =>
+            PropertyPanel.OnPointerEnter = () =>
             {
-                _propertyPanel.SetWidth(_propertyPanelWidth.Max);
-                _windowTitlePanel.Panel.SetMarginLeft(_propertyPanelWidth.Max - 100);
-                _animatorWindow.SetMarginLeft(_tagPanelWidth + 152);
-                _automaticWindow.SetMarginLeft(_tagPanelWidth + 152);
+                PropertyPanel.SetWidth(PropertyPanelWidth.Max);
+                _windowTitlePanel.Panel.SetMarginLeft(PropertyPanelWidth.Max - 100);
+                AnimatorWindow.SetMarginLeft(TagPanelWidth + 152);
 
-                _autoIcon.SetLeft(0);
-                _manualIcon.SetLeft(0);
+                ManualIcon.SetLeft(0);
 
-                _autoLabel.SetColor(Variable.IsAutomaticPanel ? "#ffffff" : "#3d3d3d");
-                _manualLabel.SetColor(!Variable.IsAutomaticPanel ? "#ffffff" : "#3d3d3d");
+                ManualLabel.SetColor("#ffffff");
 
-                _enableLabel.SetColor(Variable.IsAutomaticOn ? "#52ffa3" : "#ff5252");
+                Variable.OnPropertyPanelExpanded?.Invoke();
             };
-            _propertyPanel.OnPointerExit = () =>
+            PropertyPanel.OnPointerExit = () =>
             {
-                _propertyPanel.SetWidth(_propertyPanelWidth.Min);
-                _windowTitlePanel.Panel.SetMarginLeft(_propertyPanelWidth.Min - 100);
-                _animatorWindow.SetMarginLeft(_propertyPanelWidth.Min + 52);
-                _automaticWindow.SetMarginLeft(_propertyPanelWidth.Min + 52);
+                PropertyPanel.SetWidth(PropertyPanelWidth.Min);
+                _windowTitlePanel.Panel.SetMarginLeft(PropertyPanelWidth.Min - 100);
+                AnimatorWindow.SetMarginLeft(PropertyPanelWidth.Min + 52);
 
-                _autoIcon.SetLeft(-5);
-                _manualIcon.SetLeft(-15);
+                ManualIcon.SetLeft(-62.5f);
 
-                _autoLabel.SetColor("#00000000");
-                _manualLabel.SetColor("#00000000");
+                ManualLabel.SetColor("#00000000");
 
-                _enableLabel.SetColor("#00000000");
+                Variable.OnPropertyPanelCollapsed?.Invoke();
             };
         }
 
@@ -233,18 +194,11 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
 
             _rootNamePanel = new ERootNamePanel();
 
-            _animatorWindow = new Image().AddClass("MainWindow");
-            _animatorWindow.AddElements(_inputNamePanel, _rootNamePanel.SetMarginTop(0));
+            AnimatorWindow = new Image().AddClass("MainWindow");
+            AnimatorWindow.AddElements(_inputNamePanel, _rootNamePanel.SetMarginTop(0));
             #endregion
 
-            #region Automatic WIndow
-            _automaticLogPanel = new EAutomaticLogPanel();
-
-            _automaticWindow = new Image().AddClass("MainWindow");
-            _automaticWindow.AddElements(_automaticLogPanel);
-            #endregion
-
-            _handlerWindow = new VisualElement().AddClass(_class_handlerWindow);
+            HandlerWindow = new VisualElement().AddClass(_class_handlerWindow).AddElements(AnimatorWindow);
         }
         #endregion
         #region ▶ Editor Functions Handlers
@@ -295,13 +249,13 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
                 {
                     ReplaceRoot();
 
-                    if (!Variable.IsAutomaticPanel && !isAuto) MDebug.Custom("Swap", $"{oldPath} ▶ {newPath}", CColor.Macaroon.ToHex());
+                    if (!isAuto) MDebug.Custom("Swap", $"{oldPath} ▶ {newPath}", CColor.Macaroon.ToHex());
                 }
                 else
                 {
                     Handler.ReplaceRoot(oldPath, newPath, () => ChangeVisuals(oldPath, newPath));
 
-                    if (!Variable.IsAutomaticPanel && !isAuto) MDebug.Custom("Rename", $"{oldPath} ▶ {newPath}", CColor.Flamingo.ToHex());
+                    if (!isAuto) MDebug.Custom("Rename", $"{oldPath} ▶ {newPath}", CColor.Flamingo.ToHex());
                 }
             }
 
@@ -435,71 +389,6 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
                 MDebug.Caution($"<color=#c7ff96><b>{currentPath}</b></color> already exits in animation!");
                 clipNameField.Name.SetText(currentPath);
             }
-        }
-
-        public void UpdateMode(bool updateModePanel)
-        {
-            if (updateModePanel) UpdateModePanel();
-
-            if (Variable.IsAutomaticPanel)
-            {
-                _animatorPanel.RemoveFromHierarchy();
-                _propertyPanel.AddElements(_automaticPanel);
-
-                _animatorWindow.RemoveFromHierarchy();
-                _handlerWindow.AddElements(_automaticWindow);
-            }
-            else
-            {
-                _automaticPanel.RemoveFromHierarchy();
-                _propertyPanel.AddElements(_animatorPanel);
-
-                _automaticWindow.RemoveFromHierarchy();
-                _handlerWindow.AddElements(_animatorWindow);
-            }
-        }
-        public void UpdateModePanel()
-        {
-            _autoLabel.SetColor(Variable.IsAutomaticPanel ? "#ffffff" : "#3d3d3d");
-            _manualLabel.SetColor(!Variable.IsAutomaticPanel ? "#ffffff" : "#3d3d3d");
-
-            _autoIcon.SetBackgroundImageTintColor(Variable.IsAutomaticPanel ? "#ffffff" : "#3d3d3d");
-            _manualIcon.SetBackgroundImageTintColor(!Variable.IsAutomaticPanel ? "#ffffff" : "#3d3d3d");
-
-            _autoButton.SetBackgroundColor(Variable.IsAutomaticPanel ? "#2d2d2d" : "#1f1f1f");
-            _manualButton.SetBackgroundColor(!Variable.IsAutomaticPanel ? "#2d2d2d" : "#1f1f1f");
-        }
-
-        public static void UpdateAutomatic(bool isFocus = true)
-        {
-            _enableIcon.SetBackgroundImageTintColor(Variable.IsAutomaticOn ? "#52ffa3" : "#ff5252");
-
-            if (isFocus) _enableLabel.SetColor(Variable.IsAutomaticOn ? "#52ffa3" : "#ff5252");
-
-            _enableLabel.SetText(Variable.IsAutomaticOn ? "Automatic Mode: On" : "Automatic Mode: Off");
-
-            _enableButton.SetBorderColor(Variable.IsAutomaticOn ? "#52ffa3" : "#ff5252");
-        }
-        public static void ClearLogPanel()
-        {
-            Variable.AutomaticLogs.Clear();
-            RefreshLogPanel();
-            Variable.SaveSettings();
-        }
-        public static void RefreshLogPanel()
-        {
-            _automaticLogPanel.ClearLogs();
-
-            foreach (var line in Variable.AutomaticLogs)
-            {
-                _automaticLogPanel.AddLogItem(new(line));
-            }
-        }
-        public static void UpdateLogPanel()
-        {
-            EAutomaticLogLine line = new(Variable.AutomaticLogs[^1]);
-
-            _automaticLogPanel?.AddLogItem(line);
         }
         #endregion
     }

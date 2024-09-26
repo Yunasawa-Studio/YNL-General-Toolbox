@@ -124,9 +124,8 @@ namespace YNL.GeneralToolbox.Windows
 
         private void SwitchWindow(IMain window)
         {
-            if (!_selectedWindow.IsNull()) WindowTagPanel.Tutorial.clicked -= _selectedWindow.OpenInstruction;
             _selectedWindow = window;
-            WindowTagPanel.Tutorial.clicked += _selectedWindow.OpenInstruction;
+            //WindowTagPanel.Tutorial.clicked += _selectedWindow.OpenInstruction;
         }
     }
 
@@ -140,8 +139,6 @@ namespace YNL.GeneralToolbox.Windows
         public virtual void OnSelectionChange() { }
         public virtual void CreateGUI() { }
         public virtual void OnGUI() { }
-
-        public virtual void OpenInstruction() { }
     }
 
     public abstract class EVisual : VisualElement

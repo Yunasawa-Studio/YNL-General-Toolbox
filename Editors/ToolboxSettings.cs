@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR
+#if UNITY_EDITOR
 using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
@@ -10,16 +10,11 @@ namespace YNL.GeneralToolbox.Settings
     {
         public WindowType CurrentWindow;
 
-        public AnimationRepathingSettings AnimationRepathing = new();
-        public string AnimationRepathingData = "";
-
         public void CreateSettings()
         {
-            AnimationRepathingData = JsonConvert.SerializeObject(AnimationRepathing);
         }
         private void ApplySettings()
         {
-            AnimationRepathing = JsonConvert.DeserializeObject<AnimationRepathingSettings>(AnimationRepathingData);
         }
         public void LoadSettings()
         {
@@ -33,12 +28,10 @@ namespace YNL.GeneralToolbox.Settings
         }
         private void SetSettings()
         {
-            EditorPrefs.SetString("Animation Repathing", AnimationRepathingData);
             EditorPrefs.SetInt("Current Toolbox Window", (int)CurrentWindow);
         }
         private void GetSettings()
         {
-            AnimationRepathingData = EditorPrefs.GetString("Animation Repathing", JsonConvert.SerializeObject(AnimationRepathing, Formatting.Indented));
             CurrentWindow = (WindowType)EditorPrefs.GetInt("Current Toolbox Window", 0);
         }
     }
