@@ -180,11 +180,13 @@
 </details>
 
 <details><summary><b> Moving an object contains animated will automatically repath in clips. </b></summary>
-<video src="https://github.com/user-attachments/assets/3553f500-6a25-4f13-8202-19996f2d2a61"></video>
+<video src="https://github.com/user-attachments/assets/64b09302-20f6-4482-8d90-51c0816fc4a9"></video>
 </details>
 
+<details><summary><b> Moving an animated object out of Animator(s) scope will be canceled. </b></summary>
+<video src="https://github.com/user-attachments/assets/304fdbbb-21a2-4e1f-89f9-91053ccbc08d"></video>
+</details>
 
-
-
-
-
+<details><summary><b> Moving an object contains animated objects out of Animator(s) scope will be canceled. </b></summary>
+<video src="https://github.com/user-attachments/assets/8b588738-4546-4308-8482-8abb3da48a33"></video>
+</details>
