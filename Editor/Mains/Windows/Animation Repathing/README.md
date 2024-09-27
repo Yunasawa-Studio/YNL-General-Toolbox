@@ -97,34 +97,50 @@
 
 <h2> ★ Features & Instructions</h2>
 
-<details><summary><b> (Free) Repath object paths in multiple Animation Clips </b></summary>
-    
+
+<details><summary><b> (Free) Repath object paths in multiple Animation Clips </b></summary> 
+
 - Firstly, select the object that has Animator component, drag it into `Referenced Animator` field; or you can simply select the Animator you want by clicking on the field.
 - Then select Animation Clips you want to repath, they will appear on windows with all the paths.
-- Now you put the invalid path into `Original Root` and the new valid on to `New Root`. Then click the button beside and the change will be applied. 
+- Now you put the invalid path into `Original Root` and the new valid on to `New Root`. Then click the button beside and the change will be applied.
 
-<video src="https://github.com/user-attachments/assets/b13f98f0-4c3b-4508-b4a7-24503dc08186"></video>
+<details><summary>Preview</summary><video src="https://github.com/user-attachments/assets/b13f98f0-4c3b-4508-b4a7-24503dc08186"></video></details>
 
 - You can alse drag and drop the object you want to repath into the invalid path box, the old one will be replace with the new object path.
-
-<video src="https://github.com/user-attachments/assets/33bdcd1b-0bdf-4535-99f9-e606d9558f04"></video>
+  
+<details><summary>Preview</summary><video src="https://github.com/user-attachments/assets/33bdcd1b-0bdf-4535-99f9-e606d9558f04"></video></details>
 
 - Or you just need to change the invalid path right away, press the apply button and see the result.
+  
+<details><summary>Preview</summary><video src="https://github.com/user-attachments/assets/6b40bdef-0693-4680-b39f-01e445101842"></video></details>
 
-<video src="https://github.com/user-attachments/assets/6b40bdef-0693-4680-b39f-01e445101842"></video>
+</details>
+
+
+<details><summary><b> (Pro) Automatically repath when destroy, rename or move objects </b></summary>
+<br>
+
+> <b>This feature sometimes will not work good as expected an can cause some errors. If so, you should turn the tool of and do that manually.</b>
+>
+> If you have this error:
+> ```
+> MissingReferenceException: The object of type 'GameObject' has been destroyed but you are still trying to access it.
+> Your script should either check if it is null or you should not destroy the object.
+> ...
+> ... (at Assets/Plugins/Yunasawa の Library/YのL - General Toolbox (Pro)/Editor/Mains/Windows/Animation Repathing/HandlerPro.cs:54)
+> ... (at Assets/Plugins/Yunasawa の Library/YのL - Editor/Editor/Extensions/Handlers/HierarchyChangeCatcher.cs:99)
+> ...
+> ```
+> then you should reload your scene or reenter prefab mode. If the error you have is not this, please tell me about it.
+
+<details><summary><b> Automatically repath when renaming a single object. </b></summary>
+<video src="https://github.com/user-attachments/assets/2f513ef2-dc40-437d-8524-de52c095e78e"></video>
+</details>
+
+<h3> Automatically repath when renaming a single object. </h3>
 
 
 
 </details>
 
-<details><summary><b> (Pro) Automatically repath when destroy objects </b></summary>
 
-</details>
-
-<details><summary><b> (Pro) Automatically repath when rename objects </b></summary>
-
-</details>
-
-<details><summary><b> (Pro) Automatically repath when move objects </b></summary>
-
-</details>
