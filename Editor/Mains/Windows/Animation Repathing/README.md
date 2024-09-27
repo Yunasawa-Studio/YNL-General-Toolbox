@@ -15,7 +15,7 @@
         </th>
     </tr>
     <tr>
-        <td rowspan="3" align=center><b>Free</b></td>
+        <td rowspan="7" align=center><b>Free</b></td>
         <td >✔️ Able to edit paths on multiple Animation Clips.</td>
     </tr>
     <tr>
@@ -34,6 +34,23 @@
                 <img align=left width=95% src="https://github.com/user-attachments/assets/67b513d7-0fe7-4b4d-b829-0d26b222631c"/>
             </details>
         </td>
+    </tr>
+    <tr>
+        <td>
+            <details><summary>✔️ Repath an original object path with a new path.</summary>
+                <br>
+                <img align=left width=95% src="https://github.com/user-attachments/assets/a882ebb6-a840-4960-86e4-718d9ea0ce5f"/>
+            </details>
+        </td>
+    </tr>
+    <tr>
+        <td>✔️ Drag and drop an object to object field to replace the old path with that object's path.</td>
+    </tr>
+    <tr>
+        <td>❌ Replace a part of paths with a different word/name (Currently, only can replace a whole path with a new one).</td>
+    </tr>
+    <tr>
+        <td>✔️ Support undo function</td>
     </tr>
 </table>
 
