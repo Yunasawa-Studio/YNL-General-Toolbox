@@ -5,8 +5,6 @@
 
 <h2> ★ Contents </h2>
 
-<!--
-
 <table border="1">
     <tr>
         <th align="center">
@@ -93,8 +91,6 @@
     </tr>
 </table>
 
--->
-
 <h2> ★ Features & Instructions</h2>
 
 
@@ -132,6 +128,8 @@
 > ...
 > ```
 > then you should reload your scene or reenter prefab mode. If the error you have is not this, please tell me about it.
+>
+> <b>Be careful when trying to undo after you use automatic features, some of them may cause unexpected errors. (This will be fix soon)</b>
 
 <br>
 
@@ -189,4 +187,26 @@
 
 <details><summary><b> Moving an object contains animated objects out of Animator(s) scope will be canceled. </b></summary>
 <video src="https://github.com/user-attachments/assets/8b588738-4546-4308-8482-8abb3da48a33"></video>
+</details>
+
+</details>
+
+<details><summary><b> (Pro) Some additional extension features. </b></summary>
+<br>
+
+<table>
+    <tr>
+        <td>Toolbar Button to quickly enable/disable Automatic Mode.</td>
+        <td><img src="https://github.com/user-attachments/assets/2a3fd7a6-19a1-4594-afe8-8a3b4c98b0a6"/></td>
+    </tr>
+    <tr>
+        <td>Automatic Mode button, 3 functional buttons and some settings buttons.</td>
+        <td><img align=center src="https://github.com/user-attachments/assets/36cab77a-16ab-44ad-8f6d-68fd07adcaf9"/></td>
+    </tr>
+    <tr>
+        <td>Automatic action logs write the time and notify the events.</td>
+        <td><img align=center src="https://github.com/user-attachments/assets/a24e3987-04f8-4fd8-947a-722cfff2669b"/></td>
+    </tr>
+</table>
+
 </details>
