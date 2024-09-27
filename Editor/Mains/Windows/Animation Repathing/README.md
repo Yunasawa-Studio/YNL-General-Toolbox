@@ -22,8 +22,8 @@
         <td >
             <details><summary>✔️ Each Animation Clip has a random individual color and will show on every paths.</summary>
                 <br></br>
-                <img align=left width=30% src="https://github.com/user-attachments/assets/4dea5f03-98fe-4981-9580-6665db693e92"/>
-                <img align=right width=57.5% src="https://github.com/user-attachments/assets/22a2c5d7-8a24-445b-a9d2-62b0ce118f62"/>
+                <img align=left width=25% src="https://github.com/user-attachments/assets/4dea5f03-98fe-4981-9580-6665db693e92"/>
+                <img align=right width=47.5% src="https://github.com/user-attachments/assets/22a2c5d7-8a24-445b-a9d2-62b0ce118f62"/>
                 <!--
                 <table width=50%>
                     <tr>
