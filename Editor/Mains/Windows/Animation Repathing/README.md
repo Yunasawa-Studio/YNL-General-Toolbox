@@ -5,6 +5,8 @@
 
 <h2> ★ Contents </h2>
 
+<!--
+
 <table border="1">
     <tr>
         <th align="center">
@@ -91,10 +93,27 @@
     </tr>
 </table>
 
+-->
 
-<h2> ★ Features </h2>
+<h2> ★ Features & Instructions</h2>
 
 <details><summary><b> (Free) Repath object paths in multiple Animation Clips </b></summary>
+    
+- Firstly, select the object that has Animator component, drag it into `Referenced Animator` field; or you can simply select the Animator you want by clicking on the field.
+- Then select Animation Clips you want to repath, they will appear on windows with all the paths.
+- Now you put the invalid path into `Original Root` and the new valid on to `New Root`. Then click the button beside and the change will be applied. 
+
+<video src="https://github.com/user-attachments/assets/b13f98f0-4c3b-4508-b4a7-24503dc08186"></video>
+
+- You can alse drag and drop the object you want to repath into the invalid path box, the old one will be replace with the new object path.
+
+<video src="https://github.com/user-attachments/assets/33bdcd1b-0bdf-4535-99f9-e606d9558f04"></video>
+
+- Or you just need to change the invalid path right away, press the apply button and see the result.
+
+<video src="https://github.com/user-attachments/assets/6b40bdef-0693-4680-b39f-01e445101842"></video>
+
+
 
 </details>
 
