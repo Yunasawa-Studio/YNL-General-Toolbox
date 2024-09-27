@@ -1,5 +1,4 @@
 #if UNITY_EDITOR
-using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
 using YNL.GeneralToolbox.Windows;
@@ -8,29 +7,29 @@ namespace YNL.GeneralToolbox.Settings
 {
     public class ToolboxSettings : ScriptableObject
     {
-        public WindowType CurrentWindow;
+        public WindowType CurrentWindow = WindowType.ImageResizing;
 
-        public void CreateSettings()
+        public virtual void CreateSettings()
         {
         }
-        private void ApplySettings()
+        public virtual void ApplySettings()
         {
         }
-        public void LoadSettings()
+        public virtual void LoadSettings()
         {
             GetSettings();
             ApplySettings();
         }
-        public void SaveSettings()
+        public virtual void SaveSettings()
         {
             CreateSettings();
             SetSettings();
         }
-        private void SetSettings()
+        public virtual void SetSettings()
         {
             EditorPrefs.SetInt("Current Toolbox Window", (int)CurrentWindow);
         }
-        private void GetSettings()
+        public virtual void GetSettings()
         {
             CurrentWindow = (WindowType)EditorPrefs.GetInt("Current Toolbox Window", 0);
         }

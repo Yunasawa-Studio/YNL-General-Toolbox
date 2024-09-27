@@ -1,4 +1,5 @@
 ﻿#if UNITY_EDITOR && YNL_UTILITIES
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -25,10 +26,13 @@ namespace YNL.GeneralToolbox.Settings
             }
         }
 
+        public static SettingsProvider Provider;
+        public static Action<VisualElement, StyledComponentHeader> OnCreateActivateHandler;
+
         [SettingsProvider]
         public static SettingsProvider CreateMySettingsProvider()
         {
-            var provider = new SettingsProvider("Preferences/▶ Yunasawa の Library/General Toolbox", SettingsScope.User)
+            Provider = new SettingsProvider("Preferences/▶ Yunasawa の Library/General Toolbox", SettingsScope.User)
             {
                 label = "General Toolbox",
                 activateHandler = (searchContext, rootElement) =>
@@ -42,19 +46,21 @@ namespace YNL.GeneralToolbox.Settings
                     currentWindowField.Enum.SetBorderRadius(0);
                     currentWindowField.Field.SetEnabled(false);
 
-                    rootElement.SetPadding(5)
-                        .AddElements(new StyledComponentHeader()
+                    StyledComponentHeader componentHeader = new StyledComponentHeader()
                         .SetGlobalColor("#FFFFFF")
                         .AddIcon("Textures/General/Editor Icon", MAddressType.Resources)
                         .AddTitle("General Toolbox")
                         .AddDocumentation("")
-                        .AddBottomSpace(10))
-                        .AddElements(currentWindowField);
+                        .AddBottomSpace(10);
+
+                    rootElement.SetPadding(5).AddElements(componentHeader, currentWindowField);
+
+                    OnCreateActivateHandler?.Invoke(rootElement, componentHeader);
                 },
                 keywords = new[] { "General", "Toolbox" }
             };
 
-            return provider;
+            return Provider;
         }
     }
 }
