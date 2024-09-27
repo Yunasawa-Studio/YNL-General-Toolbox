@@ -178,15 +178,15 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
             };
             PropertyPanel.OnPointerExit = () =>
             {
-                //PropertyPanel.SetWidth(PropertyPanelWidth.Min);
-                //_windowTitlePanel.Panel.SetMarginLeft(PropertyPanelWidth.Min - 100);
-                //AnimatorWindow.SetMarginLeft(PropertyPanelWidth.Min + 52);
+                PropertyPanel.SetWidth(PropertyPanelWidth.Min);
+                _windowTitlePanel.Panel.SetMarginLeft(PropertyPanelWidth.Min - 100);
+                AnimatorWindow.SetMarginLeft(PropertyPanelWidth.Min + 52);
 
-                //ManualIcon.SetLeft(-62.5f);
+                ManualIcon.SetLeft(-62.5f);
 
-                //ManualLabel.SetColor("#00000000");
+                ManualLabel.SetColor("#00000000");
 
-                //Variable.OnPropertyPanelCollapsed?.Invoke();
+                Variable.OnPropertyPanelCollapsed?.Invoke();
             };
         }
 

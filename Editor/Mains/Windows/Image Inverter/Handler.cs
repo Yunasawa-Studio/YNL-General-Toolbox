@@ -84,9 +84,12 @@ namespace YNL.GeneralToolbox.Windows.ImageInverting
             {
                 MDebug.Warning($"Texture is not readable. Adjusting import settings to readable");
                 string assetPath = AssetDatabase.GetAssetPath(originalTexture);
-                TextureImporter textureImporter = (TextureImporter)AssetImporter.GetAtPath(assetPath);
-                textureImporter.isReadable = true;
-                AssetDatabase.ImportAsset(assetPath);
+                TextureImporter textureImporter = AssetImporter.GetAtPath(assetPath) as TextureImporter;
+                if (!textureImporter.IsNull())
+                {
+                    textureImporter.isReadable = true;
+                    AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceUpdate);
+                }
             }
 
             int width = originalTexture.width;
