@@ -14,3 +14,18 @@
 > - This package is one of the two packages separated from <a href="https://github.com/Yunasawa/YNL-Editor--Obsoleted"> YNL - Editor (Obsoleted) </a>.
 > - This repository just contains the free version of <b>YNL - General Toolbox</b>, you can buy the Pro version from Unity Asset Store.
 > - Besides, this contains Documentation for both Free and Pro versions.
+
+<h2> ★ About </h2>
+
+- A product made by Yunasawa Studio, those will be helpful tools that solve your several problems can appear in your developing progress. <br>
+- Contact us: <kbd> yunasawa200@gmail.com </kbd>
+
+<h2> ★ Installation </h2>
+
+- This package is no longer supported for Open UPM scope, you can only install it through Git URL:
+```
+https://github.com/Yunasawa-Studio/YNL-General-Toolbox.git
+```
+- If you have bought the Pro version, this package will be automatically installed belong with the Pro version.
+  
+<h2> ★ Features </h2>
