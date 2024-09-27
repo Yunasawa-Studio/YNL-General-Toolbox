@@ -8,15 +8,32 @@
 <table border="1">
     <tr>
         <th align="center">
-            <img width="100" height="1"><p><small>Version</small></p>
+            <img width="100" height="0"><p><small>Version</small></p>
         </th>
         <th align="center">
-            <img width="1000" height="1"><p> <small>Features</small></p>
+            <img width="1000" height="0"><p> <small>Features</small></p>
         </th>
     </tr>
     <tr>
-        <td rowspan="3"><b>Free</b></td>
-        <td>✔️ Can edit multiple Animation Clips</td>
+        <td rowspan="3" align=center><b>Free</b></td>
+        <td >✔️ Able to edit paths on multiple Animation Clips.</td>
+    </tr>
+    <tr>
+        <td >
+            <details><summary>✔️ Each Animation Clip has a random individual color and will show on every paths.</summary>
+                <br></br>
+                <img align=left width=30% src="https://github.com/user-attachments/assets/4dea5f03-98fe-4981-9580-6665db693e92"/>
+                <img align=right width=57.5% src="https://github.com/user-attachments/assets/22a2c5d7-8a24-445b-a9d2-62b0ce118f62"/>
+                <!--
+                <table width=50%>
+                    <tr>
+                        <td width=10%><img width=80% src="https://github.com/user-attachments/assets/4dea5f03-98fe-4981-9580-6665db693e92"/></td>
+                        <td width=40%><img width=50% src="https://github.com/user-attachments/assets/22a2c5d7-8a24-445b-a9d2-62b0ce118f62"/></td>
+                    </tr>
+                </table>
+                -->
+            </details>
+        </td>
     </tr>
 </table>
 
