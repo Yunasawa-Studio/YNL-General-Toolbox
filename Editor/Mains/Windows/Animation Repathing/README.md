@@ -133,14 +133,58 @@
 > ```
 > then you should reload your scene or reenter prefab mode. If the error you have is not this, please tell me about it.
 
-<details><summary><b> Automatically repath when renaming a single object. </b></summary>
+<br>
+
+<details><summary><b> Destroying an object will be canceled if that object is animated. </b></summary>
+<video src="https://github.com/user-attachments/assets/bb56b4dd-5774-43ae-a56d-13e7e6e41fb4"></video>
+</details>
+
+<details><summary><b> Destroying an object will be canceled if that object contains an animated object. </b></summary>
+<video src="https://github.com/user-attachments/assets/47abba41-f5ca-4828-90f1-09b074a7b1e3"></video>
+</details>
+
+<details><summary><b> Destroying multiple objects will keep the animated objects and still destroy the unanimated ones. </b></summary>
+<video src="https://github.com/user-attachments/assets/30bd0d05-2b6d-452e-8cd2-2fee8adc047f"></video>
+</details>
+
+<details><summary><b> Destroying an object that contains both animated and unanimated children will keep the animated and destroy the unanimated ones. </b></summary>
+<video src="https://github.com/user-attachments/assets/9baadcac-25cd-4e88-bc34-94a4def02aaf"></video>
+</details>
+
+<br>
+
+<details><summary><b> Renaming an animated object will automatically repath in clips. </b></summary>
 <video src="https://github.com/user-attachments/assets/2f513ef2-dc40-437d-8524-de52c095e78e"></video>
 </details>
 
-<h3> Automatically repath when renaming a single object. </h3>
-
-
-
+<details><summary><b> Renaming an object contains animated objects will automatically repath in clips. </b></summary>
+<video src="https://github.com/user-attachments/assets/3f165e81-c974-48c0-933a-c0d2e07c6a14"></video>
 </details>
+
+<details><summary><b> Renaming an object to a new name which is used by another object in the same path will be canceled. </b></summary>
+<video src="https://github.com/user-attachments/assets/b934f4f3-e775-4ba5-bca5-22f53a12b1d9"></video>
+</details>
+
+<details><summary><b> Renaming multiple objects in a same path to a same name but one of them is animated will be canceled. </b></summary>
+<video src="https://github.com/user-attachments/assets/ab7a5d84-b150-4d73-9eea-cd8314cd64f0"></video>
+</details>
+
+<details><summary><b> Renaming multiple objects in different paths to a same name will automatically repath in clips. </b></summary>
+<video src="https://github.com/user-attachments/assets/1096539b-03da-4cfd-bccc-1f260ad410a9"></video>
+</details>
+
+<br>
+
+<details><summary><b> Moving an animated object will automatically repath in clips. </b></summary>
+<video src="https://github.com/user-attachments/assets/3553f500-6a25-4f13-8202-19996f2d2a61"></video>
+</details>
+
+<details><summary><b> Moving an object contains animated will automatically repath in clips. </b></summary>
+<video src="https://github.com/user-attachments/assets/3553f500-6a25-4f13-8202-19996f2d2a61"></video>
+</details>
+
+
+
+
 
 
