@@ -29,3 +29,5 @@ https://github.com/Yunasawa-Studio/YNL-General-Toolbox.git
 - If you have bought the Pro version, this package will be automatically installed belong with the Pro version.
   
 <h2> ★ Features </h2>
+
+- <a href="https://github.com/Yunasawa-Studio/YNL-General-Toolbox/blob/main/Editor/Mains/Windows/Animation%20Repathing/README.md">Animation Repathing</a>
