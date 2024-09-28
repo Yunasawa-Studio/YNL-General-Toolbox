@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+#if UNITY_EDITOR && YNL_EDITOR
 using UnityEditor;
 using UnityEngine;
 using YNL.GeneralToolbox.Windows;

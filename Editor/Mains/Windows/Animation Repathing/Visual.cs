@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if YNL_UTILITIES && YNL_EDITOR
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UIElements;
 using UnityEngine;
@@ -397,3 +398,4 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         #endregion
     }
 }
+#endif

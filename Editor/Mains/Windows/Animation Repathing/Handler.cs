@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR && YNL_UTILITIES
+﻿#if UNITY_EDITOR && YNL_UTILITIES && YNL_EDITOR
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;

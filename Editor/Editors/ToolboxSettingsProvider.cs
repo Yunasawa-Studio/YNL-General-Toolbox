@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR && YNL_UTILITIES
+﻿#if UNITY_EDITOR && YNL_UTILITIES && YNL_EDITOR
 using System;
 using UnityEditor;
 using UnityEngine;

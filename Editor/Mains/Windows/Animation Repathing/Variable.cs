@@ -1,3 +1,4 @@
+#if UNITY_EDITOR && YNL_EDITOR
 using System;
 
 namespace YNL.GeneralToolbox.Windows.AnimationRepathing
@@ -13,3 +14,4 @@ namespace YNL.GeneralToolbox.Windows.AnimationRepathing
         public static Action OnTagPanelCollapsed;
     }
 }
+#endif
