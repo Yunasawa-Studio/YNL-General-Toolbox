@@ -16,8 +16,9 @@
 > - Besides, this contains Documentation for both Free and Pro versions.
 
 > [!Important]
-> - YNL - General Toolbox (Pro) depends on YNL - General Toolbox, YNL - Editor and YNL - Utilities
-> - YNL - General Toolbox depends on YNL - Editor and YNL - Utilities
+> - YNL - General Toolbox (Pro) depends on <a href="https://github.com/Yunasawa-Studio/YNL-General-Toolbox">YNL - General Toolbox</a>, <a href="https://github.com/Yunasawa-Studio/YNL-Editor">YNL - Editor</a> and <a href="https://github.com/Yunasawa/YNL-Utilities">YNL - Utilities</a>
+> - YNL - General Toolbox depends on <a href="https://github.com/Yunasawa-Studio/YNL-Editor">YNL - Editor</a> and <a href="https://github.com/Yunasawa/YNL-Utilities">YNL - Utilities</a>
+> - You have to install all the dependencies to make the tool work.
 > - Currently, if you install the package, those dependencies will be automatically installed, but that will result in some disadvantages when using. In future time, you may use YNL - Package Manager to install/uninstall the dependencies properly.
 
 <h2> ★ About </h2>
