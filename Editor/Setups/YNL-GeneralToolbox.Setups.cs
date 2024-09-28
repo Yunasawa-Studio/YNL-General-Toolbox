@@ -3,11 +3,14 @@ using System;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.PackageManager;
+using UnityEditor.PackageManager.Requests;
 
 namespace YNL.GeneralToolbox.Setups
 {
     public class Setups : AssetPostprocessor
     {
+        private static ListRequest _request;
+
         private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
             var inPackages = importedAssets.Any(path => path.StartsWith("Packages/")) ||
@@ -24,8 +27,16 @@ namespace YNL.GeneralToolbox.Setups
         [InitializeOnLoadMethod]
         private static void InitializeOnLoad()
         {
-            TryInstallPackage(Client.List().Result, "com.yunasawa.ynl.editor", "https://github.com/Yunasawa-Studio/YNL-Editor.git", "2.0.4");
+            _request = Client.List();
+            EditorApplication.update += OnEditorApplicationUpdate;
             EditorDefineSymbols.AddSymbols("YNL_GENERALTOOLBOX");
+        }
+
+        private static void OnEditorApplicationUpdate()
+        {
+            EditorApplication.update -= OnEditorApplicationUpdate;
+
+            TryInstallPackage(Client.List().Result, "com.yunasawa.ynl.editor", "https://github.com/Yunasawa-Studio/YNL-Editor.git", "2.0.5");
         }
 
         private static void TryInstallPackage(PackageCollection packages, string name, string url, string version)
