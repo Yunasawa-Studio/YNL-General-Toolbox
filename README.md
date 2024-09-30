@@ -28,7 +28,7 @@
 
 <h2> ★ Installation </h2>
 
-<details><summary><h3> Free version:</h3></summary>
+<details><summary><b> Free version:</b></summary>
 
 - This package is no longer supported for Open UPM scope, you can only install it through Git URL:
 
@@ -46,7 +46,7 @@ https://github.com/Yunasawa-Studio/YNL-General-Toolbox.git
 
 </details>
 
-<details><summary><h3>Pro version:</h3></summary>
+<details><summary><b>Pro version:</b></summary>
 
 - If you have bought the Pro version, you just need to install it through Package Manager.
 - After you install the package, select this menu item on menu bar like this:
