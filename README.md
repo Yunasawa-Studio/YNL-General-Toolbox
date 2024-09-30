@@ -10,10 +10,16 @@
  <img src="https://img.shields.io/badge/Version-2022.3-orange.svg" alt="version">
 </p>
 
-> [!Important]
+> [!Note]
 > - This package is one of the two packages separated from <a href="https://github.com/Yunasawa/YNL-Editor--Obsoleted"> YNL - Editor (Obsoleted) </a>.
 > - This repository just contains the free version of <b>YNL - General Toolbox</b>, you can buy the Pro version from Unity Asset Store.
 > - Besides, this contains Documentation for both Free and Pro versions.
+
+> [!Important]
+> - YNL - General Toolbox (Pro) depends on <a href="https://github.com/Yunasawa-Studio/YNL-General-Toolbox">YNL - General Toolbox</a>, <a href="https://github.com/Yunasawa-Studio/YNL-Editor">YNL - Editor</a> and <a href="https://github.com/Yunasawa/YNL-Utilities">YNL - Utilities</a>
+> - YNL - General Toolbox depends on <a href="https://github.com/Yunasawa-Studio/YNL-Editor">YNL - Editor</a> and <a href="https://github.com/Yunasawa/YNL-Utilities">YNL - Utilities</a>
+> - You have to install all the dependencies to make the tool work.
+<!--> - Currently, if you install the package, those dependencies will be automatically installed, but that will result in some disadvantages when using. In future time, you may use YNL - Package Manager to install/uninstall the dependencies properly.-->
 
 <h2> ★ About </h2>
 
