@@ -28,7 +28,7 @@
 
 <h2> ★ Installation </h2>
 
-<h3> Free version:</h3>
+<details><summary><h3> Free version:</h3></summary>
 
 - This package is no longer supported for Open UPM scope, you can only install it through Git URL:
 
@@ -44,7 +44,9 @@ https://github.com/Yunasawa-Studio/YNL-General-Toolbox.git
 
 - When you want to uninstall the package or dependencies, click on `Uninstall All` and wait. After the process finished, a bunch of errors will appear due to the lack of removed dependencies; click on `Remove define symbols` will fix it. Then you can uninstall the package.
 
-<h3>Pro version:</h3>
+</details>
+
+<details><summary><h3>Pro version:</h3></summary>
 
 - If you have bought the Pro version, you just need to install it through Package Manager.
 - After you install the package, select this menu item on menu bar like this:
@@ -54,6 +56,8 @@ https://github.com/Yunasawa-Studio/YNL-General-Toolbox.git
 <div align=center><img src="https://github.com/user-attachments/assets/f19318e2-2e40-490b-8c15-89e28fd84343"/></div>
 
 - When you want to uninstall the package or dependencies, click on `Uninstall All` and wait. After the process finished, a bunch of errors will appear due to the lack of removed dependencies; click on `Remove define symbols` will fix it. Then you can uninstall the package.
+
+</details>
 
 <h2> ★ Features </h2>
 
