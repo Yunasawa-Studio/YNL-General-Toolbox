@@ -35,7 +35,7 @@ namespace YNL.GeneralToolbox.Windows
         #endregion
 
 
-        [MenuItem("🔗 YのL/🔗 Windows/🔗 General Toolbox")]
+        [MenuItem("🔗 YのL/🔗 General Toolbox/🔗 Editor Window")]
         public static void ShowWindow()
         {
             GeneralToolbox window = GetWindow<GeneralToolbox>("General Toolbox");

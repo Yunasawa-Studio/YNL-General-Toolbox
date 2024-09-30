@@ -27,7 +27,7 @@ namespace YNL.GeneralToolbox.Setups
 
         private static void InitializeOnLoad()
         {
-            EditorApplication.update += OnEditorApplicationUpdate;
+            //EditorApplication.update += OnEditorApplicationUpdate;
             EditorDefineSymbols.AddSymbols("YNL_GENERALTOOLBOX");
         }
 
