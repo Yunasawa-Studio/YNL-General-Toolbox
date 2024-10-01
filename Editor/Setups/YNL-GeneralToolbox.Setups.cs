@@ -48,8 +48,6 @@ namespace YNL.GeneralToolbox.Setups
             EditorPrefs.SetBool(DependenciesKey, true);
 
             EditorDefineSymbols.AddSymbols("YNL_GENERALTOOLBOX");
-
-            Debug.Log("YNL - General Toolbox");
         }
 
         private static void IsPackageInstalled(PackageCollection packages, string name, ref bool checker)

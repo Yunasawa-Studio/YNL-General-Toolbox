@@ -19,7 +19,6 @@ namespace YNL.GeneralToolbox.Setups
         private static Queue<string> _packagesToInstall = new Queue<string>();
         private static Queue<string> _packagesToRemove = new Queue<string>();
         private static AddRequest _addRequest;
-        private static RemoveRequest _removeRequest;
         private static AddAndRemoveRequest _addAndRemoveRequest;
 
         [MenuItem("🔗 YのL/▷ YNL - General Toolbox/🌐 Package Installer")]
@@ -134,7 +133,7 @@ namespace YNL.GeneralToolbox.Setups
             Debug.Log("<b><color=#c5ffb0>This process can take minutes, be patient and please wait until everything is done!</color></b>");
 
             _packagesToInstall.Enqueue("https://github.com/Yunasawa/YNL-Utilities.git#1.5.2");
-            _packagesToInstall.Enqueue("https://github.com/Yunasawa-Studio/YNL-Editor.git#2.1.0");
+            _packagesToInstall.Enqueue("https://github.com/Yunasawa-Studio/YNL-Editor.git#2.1.1");
 
             InstallNextPackage();
         }
@@ -164,7 +163,7 @@ namespace YNL.GeneralToolbox.Setups
 
         private static void RemoveNextPackage(string[] packages)
         {
-            AddAndRemoveRequest addAndRemoveRequest = Client.AddAndRemove(null, packages);
+            _addAndRemoveRequest = Client.AddAndRemove(null, packages);
 
             EditorApplication.update += ProgressRemove;
         }
@@ -195,13 +194,13 @@ namespace YNL.GeneralToolbox.Setups
         {
             if (_addAndRemoveRequest.IsCompleted)
             {
-                if (_removeRequest.Status == StatusCode.Success)
+                if (_addAndRemoveRequest.Status == StatusCode.Success)
                 {
                     Debug.Log("Removed package succeeded");
                 }
-                else if (_removeRequest.Status >= StatusCode.Failure)
+                else if (_addAndRemoveRequest.Status >= StatusCode.Failure)
                 {
-                    //Debug.LogError(_removeRequest.Error.message);
+                    //Debug.LogError(_addAndRemoveRequest.Error.message);
                 }
                 EditorApplication.update -= ProgressRemove;
             }
