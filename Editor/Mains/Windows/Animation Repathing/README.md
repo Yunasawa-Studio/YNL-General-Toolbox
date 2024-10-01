@@ -116,7 +116,7 @@
 <details><summary><b> (Pro) Automatically repath when destroy, rename or move objects </b></summary>
 <br>
 
-> <b>This feature sometimes will not work good as expected an can cause some errors. If so, you should turn the tool of and do that manually.</b>
+> <b>This feature sometimes will not work good as expected and can cause some errors. If so, you should turn the tool off and do that manually.</b>
 >
 > If you have this error:
 > ```
