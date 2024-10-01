@@ -39,7 +39,7 @@ https://github.com/Yunasawa-Studio/YNL-General-Toolbox.git
 - After you install the package, select this menu item on menu bar like this:
 <div align=center><img src="https://github.com/user-attachments/assets/25ef4325-c2ad-433e-9bf9-762186d298f1"/></div>
 
-- Then, a popup window will shown up. You have to click on `Install All` to install all the dependencies. The process can take long please so don't rush and wait until it's all done.
+- Then, a popup window will shown up. You have to click on `Install All` to install all the dependencies. The process can take long so please don't rush and wait until it's all done.
 <div align=center><img src="https://github.com/user-attachments/assets/f6ec068a-d06a-46c4-8ba0-4bcf46b34b9b"/></div>
 
 - When you want to uninstall the package or dependencies, click on `Uninstall All` and wait. After the process finished, a bunch of errors will appear due to the lack of removed dependencies; click on `Remove define symbols` will fix it. Then you can uninstall the package.
@@ -52,7 +52,7 @@ https://github.com/Yunasawa-Studio/YNL-General-Toolbox.git
 - After you install the package, select this menu item on menu bar like this:
 <div align=center><img src="https://github.com/user-attachments/assets/e6e2e23b-d278-4654-988d-bfe315815e95"/></div>
 
-- Then, a popup window will shown up. You have to click on `Install All` to install all the dependencies. The process can take long please so don't rush and wait until it's all done.
+- Then, a popup window will shown up. You have to click on `Install All` to install all the dependencies. The process can take long so please don't rush and wait until it's all done.
 <div align=center><img src="https://github.com/user-attachments/assets/f19318e2-2e40-490b-8c15-89e28fd84343"/></div>
 
 - When you want to uninstall the package or dependencies, click on `Uninstall All` and wait. After the process finished, a bunch of errors will appear due to the lack of removed dependencies; click on `Remove define symbols` will fix it. Then you can uninstall the package.
