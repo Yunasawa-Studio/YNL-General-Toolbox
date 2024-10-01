@@ -19,7 +19,7 @@
 > - YNL - General Toolbox (Pro) depends on <a href="https://github.com/Yunasawa-Studio/YNL-General-Toolbox">YNL - General Toolbox</a>, <a href="https://github.com/Yunasawa-Studio/YNL-Editor">YNL - Editor</a> and <a href="https://github.com/Yunasawa/YNL-Utilities">YNL - Utilities</a>
 > - YNL - General Toolbox depends on <a href="https://github.com/Yunasawa-Studio/YNL-Editor">YNL - Editor</a> and <a href="https://github.com/Yunasawa/YNL-Utilities">YNL - Utilities</a>
 > - You have to install all the dependencies to make the tool work.
-<!--> - Currently, if you install the package, those dependencies will be automatically installed, but that will result in some disadvantages when using. In future time, you may use YNL - Package Manager to install/uninstall the dependencies properly.-->
+<!-- - Currently, if you install the package, those dependencies will be automatically installed, but that will result in some disadvantages when using. In future time, you may use YNL - Package Manager to install/uninstall the dependencies properly.-->
 
 <h2> ★ About </h2>
 
@@ -28,12 +28,37 @@
 
 <h2> ★ Installation </h2>
 
+<details><summary><b> Free version:</b></summary>
+
 - This package is no longer supported for Open UPM scope, you can only install it through Git URL:
+
 ```
 https://github.com/Yunasawa-Studio/YNL-General-Toolbox.git
 ```
-- If you have bought the Pro version, this package will be automatically installed belong with the Pro version.
-  
+
+- After you install the package, select this menu item on menu bar like this:
+<div align=center><img src="https://github.com/user-attachments/assets/25ef4325-c2ad-433e-9bf9-762186d298f1"/></div>
+
+- Then, a popup window will shown up. You have to click on `Install All` to install all the dependencies. The process can take long so please don't rush and wait until it's all done.
+<div align=center><img src="https://github.com/user-attachments/assets/f6ec068a-d06a-46c4-8ba0-4bcf46b34b9b"/></div>
+
+- When you want to uninstall the package or dependencies, click on `Uninstall All` and wait. After the process finished, a bunch of errors will appear due to the lack of removed dependencies; click on `Remove define symbols` will fix it. Then you can uninstall the package.
+
+</details>
+
+<details><summary><b>Pro version:</b></summary>
+
+- If you have bought the Pro version, you just need to install it through Package Manager.
+- After you install the package, select this menu item on menu bar like this:
+<div align=center><img src="https://github.com/user-attachments/assets/e6e2e23b-d278-4654-988d-bfe315815e95"/></div>
+
+- Then, a popup window will shown up. You have to click on `Install All` to install all the dependencies. The process can take long so please don't rush and wait until it's all done.
+<div align=center><img src="https://github.com/user-attachments/assets/f19318e2-2e40-490b-8c15-89e28fd84343"/></div>
+
+- When you want to uninstall the package or dependencies, click on `Uninstall All` and wait. After the process finished, a bunch of errors will appear due to the lack of removed dependencies; click on `Remove define symbols` will fix it. Then you can uninstall the package.
+
+</details>
+
 <h2> ★ Features </h2>
 
 - <a href="https://github.com/Yunasawa-Studio/YNL-General-Toolbox/blob/main/Editor/Mains/Windows/Animation%20Repathing/README.md">Animation Repathing</a>

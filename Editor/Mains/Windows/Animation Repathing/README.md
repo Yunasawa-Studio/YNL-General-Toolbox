@@ -116,7 +116,7 @@
 <details><summary><b> (Pro) Automatically repath when destroy, rename or move objects </b></summary>
 <br>
 
-> <b>This feature sometimes will not work good as expected an can cause some errors. If so, you should turn the tool of and do that manually.</b>
+> <b>This feature sometimes will not work good as expected and can cause some errors. If so, you should turn the tool off and do that manually.</b>
 >
 > If you have this error:
 > ```
@@ -129,7 +129,7 @@
 > ```
 > then you should reload your scene or reenter prefab mode. If the error you have is not this, please tell me about it.
 >
-> <b>Be careful when trying to undo after you use automatic features, some of them may cause unexpected errors. (This will be fix soon)</b>
+> <b>Be careful when trying to undo after you use automatic features, some of them may cause unexpected errors. (Might be fix in the future)</b>
 
 <br>
 
