@@ -1,5 +1,4 @@
-﻿#if !YNL_CREATOR
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.PackageManager;
 using UnityEditor.PackageManager.Requests;
@@ -59,7 +58,7 @@ namespace YNL.GeneralToolbox.Setups
             _dependencies.editor = Setups.Dependencies.editor;
             _dependencies.utilities = Setups.Dependencies.utilities;
 
-            StyleSheet style = Resources.Load<StyleSheet>("Style Sheets/Packages/Package");
+            StyleSheet style = Resources.Load<StyleSheet>("Style Sheets/YNL-GeneralToolbox.Packages/Package");
 
             var root = rootVisualElement;
             if (style == null)
@@ -135,7 +134,7 @@ namespace YNL.GeneralToolbox.Setups
             Debug.Log("<b><color=#c5ffb0>This process can take minutes, be patient and please wait until everything is done!</color></b>");
 
             _packagesToInstall.Enqueue("https://github.com/Yunasawa/YNL-Utilities.git#1.5.2");
-            _packagesToInstall.Enqueue("https://github.com/Yunasawa-Studio/YNL-Editor.git#2.0.17");
+            _packagesToInstall.Enqueue("https://github.com/Yunasawa-Studio/YNL-Editor.git#2.1.0");
 
             InstallNextPackage();
         }
@@ -243,7 +242,7 @@ namespace YNL.GeneralToolbox.Setups
 
         public PackageBox(string label, bool status)
         {
-            StyleSheet styleSheet = Resources.Load<StyleSheet>("Style Sheets/Packages/Package");
+            StyleSheet styleSheet = Resources.Load<StyleSheet>("Style Sheets/YNL-GeneralToolbox.Packages/Package");
 
             this.styleSheets.Add(styleSheet);
             this.AddToClassList("PackageBox");
@@ -265,4 +264,3 @@ namespace YNL.GeneralToolbox.Setups
         }
     }
 }
-#endif

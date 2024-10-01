@@ -1,21 +1,29 @@
-#if !YNL_CREATOR
 using UnityEditor;
 using UnityEditor.PackageManager.Requests;
 using UnityEditor.PackageManager;
+using UnityEngine;
+using System.Linq;
 
 namespace YNL.GeneralToolbox.Setups
 {
-    [InitializeOnLoad]
-    public class Setups
+    public class Setups : AssetPostprocessor
     {
         public const string DependenciesKey = "YNL - General Toolbox | dependencies";
 
         private static ListRequest _request;
         public static (bool editor, bool utilities) Dependencies;
 
-        static Setups()
+        private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
-            EditorApplication.update += OnEditorApplicationUpdate;
+            var inPackages = importedAssets.Any(path => path.StartsWith("Packages/")) ||
+                deletedAssets.Any(path => path.StartsWith("Packages/")) ||
+                movedAssets.Any(path => path.StartsWith("Packages/")) ||
+                movedFromAssetPaths.Any(path => path.StartsWith("Packages/"));
+
+            if (inPackages)
+            {
+                EditorApplication.update += OnEditorApplicationUpdate;
+            }
         }
 
         private static void OnEditorApplicationUpdate()
@@ -40,6 +48,8 @@ namespace YNL.GeneralToolbox.Setups
             EditorPrefs.SetBool(DependenciesKey, true);
 
             EditorDefineSymbols.AddSymbols("YNL_GENERALTOOLBOX");
+
+            Debug.Log("YNL - General Toolbox");
         }
 
         private static void IsPackageInstalled(PackageCollection packages, string name, ref bool checker)
@@ -53,4 +63,3 @@ namespace YNL.GeneralToolbox.Setups
         }
     }
 }
-#endif
