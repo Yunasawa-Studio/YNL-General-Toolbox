@@ -21,6 +21,7 @@ namespace YNL.GeneralToolbox.Setups
         private static Queue<string> _packagesToRemove = new Queue<string>();
         private static AddRequest _addRequest;
         private static RemoveRequest _removeRequest;
+        private static AddAndRemoveRequest _addAndRemoveRequest;
 
         [MenuItem("🔗 YのL/▷ YNL - General Toolbox/🌐 Package Installer")]
         public static void ShowWindow()
@@ -129,12 +130,12 @@ namespace YNL.GeneralToolbox.Setups
             root.RegisterCallback<MouseUpEvent>(OnMouseUp);
         }
 
-        private  void InstallAll()
+        private void InstallAll()
         {
             Debug.Log("<b><color=#c5ffb0>This process can take minutes, be patient and please wait until everything is done!</color></b>");
 
             _packagesToInstall.Enqueue("https://github.com/Yunasawa/YNL-Utilities.git#1.5.2");
-            _packagesToInstall.Enqueue("https://github.com/Yunasawa-Studio/YNL-Editor.git#2.0.16");
+            _packagesToInstall.Enqueue("https://github.com/Yunasawa-Studio/YNL-Editor.git#2.0.17");
 
             InstallNextPackage();
         }
@@ -143,10 +144,13 @@ namespace YNL.GeneralToolbox.Setups
         {
             Debug.Log("<b><color=#c5ffb0>This process can take minutes, be patient and please wait until everything is done!</color></b>");
 
-            _packagesToRemove.Enqueue("com.yunasawa.ynl.editor");
-            _packagesToRemove.Enqueue("com.yunasawa.ynl.utilities");
+            string[] packagesToRemove = 
+                {
+                "com.yunasawa.ynl.editor",
+                "com.yunasawa.ynl.utilities"
+            };
 
-            RemoveNextPackage();
+            RemoveNextPackage(packagesToRemove);
         }
 
         private static void InstallNextPackage()
@@ -159,14 +163,11 @@ namespace YNL.GeneralToolbox.Setups
             }
         }
 
-        private static void RemoveNextPackage()
+        private static void RemoveNextPackage(string[] packages)
         {
-            if (_packagesToRemove.Count > 0)
-            {
-                string packageName = _packagesToRemove.Dequeue();
-                _removeRequest = Client.Remove(packageName);
-                EditorApplication.update += ProgressRemove;
-            }
+            AddAndRemoveRequest addAndRemoveRequest = Client.AddAndRemove(null, packages);
+
+            EditorApplication.update += ProgressRemove;
         }
 
         private static void RemoveDefineSymbols()
@@ -193,12 +194,11 @@ namespace YNL.GeneralToolbox.Setups
 
         private static void ProgressRemove()
         {
-            if (_removeRequest.IsCompleted)
+            if (_addAndRemoveRequest.IsCompleted)
             {
                 if (_removeRequest.Status == StatusCode.Success)
                 {
                     Debug.Log("Removed package succeeded");
-                    RemoveNextPackage();
                 }
                 else if (_removeRequest.Status >= StatusCode.Failure)
                 {
