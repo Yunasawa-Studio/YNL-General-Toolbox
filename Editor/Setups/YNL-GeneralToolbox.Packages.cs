@@ -60,6 +60,11 @@ namespace YNL.GeneralToolbox.Setups
             StyleSheet style = Resources.Load<StyleSheet>("Style Sheets/Packages/Package");
 
             var root = rootVisualElement;
+            if (style == null)
+            {
+                CloseWindow();
+                return;
+            }
             if (!root.styleSheets.Contains(style)) root.styleSheets.Add(style);
             root.AddToClassList("Main");
 
