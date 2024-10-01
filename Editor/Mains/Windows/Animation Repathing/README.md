@@ -129,7 +129,7 @@
 > ```
 > then you should reload your scene or reenter prefab mode. If the error you have is not this, please tell me about it.
 >
-> <b>Be careful when trying to undo after you use automatic features, some of them may cause unexpected errors. (This will be fix soon)</b>
+> <b>Be careful when trying to undo after you use automatic features, some of them may cause unexpected errors. (Might be fix in the future)</b>
 
 <br>
 
