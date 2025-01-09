@@ -16,8 +16,8 @@
 > - Besides, this contains Documentation for both Free and Pro versions.
 
 > [!Important]
-> - YNL - General Toolbox (Pro) depends on <a href="https://github.com/Yunasawa-Studio/YNL-General-Toolbox">YNL - General Toolbox</a>, <a href="https://github.com/Yunasawa-Studio/YNL-Editor">YNL - Editor</a> and <a href="https://github.com/Yunasawa/YNL-Utilities">YNL - Utilities</a>
-> - YNL - General Toolbox depends on <a href="https://github.com/Yunasawa-Studio/YNL-Editor">YNL - Editor</a> and <a href="https://github.com/Yunasawa/YNL-Utilities">YNL - Utilities</a>
+> - <a href="https://yunasawa.itch.io/ynl-general-toolbox-pro"><b>YNL - General Toolbox (Pro)</b></a> depends on <a href="https://github.com/Yunasawa-Studio/YNL-General-Toolbox">YNL - General Toolbox</a>, <a href="https://github.com/Yunasawa-Studio/YNL-Editor">YNL - Editor</a> and <a href="https://github.com/Yunasawa/YNL-Utilities">YNL - Utilities</a>
+> - <b>YNL - General Toolbox</b> depends on <a href="https://github.com/Yunasawa-Studio/YNL-Editor">YNL - Editor</a> and <a href="https://github.com/Yunasawa/YNL-Utilities">YNL - Utilities</a>
 > - You have to install all the dependencies to make the tool work.
 <!-- - Currently, if you install the package, those dependencies will be automatically installed, but that will result in some disadvantages when using. In future time, you may use YNL - Package Manager to install/uninstall the dependencies properly.-->
 
@@ -48,7 +48,7 @@ https://github.com/Yunasawa-Studio/YNL-General-Toolbox.git
 
 <details><summary><b>Pro version:</b></summary>
 
-- If you have bought the Pro version, you just need to install it through Package Manager.
+- You can pay for Pro version from <a href="https://yunasawa.itch.io/ynl-general-toolbox-pro">Itch.io</a> or Unity Asset Store.
 - After you install the package, select this menu item on menu bar like this:
 <div align=center><img src="https://github.com/user-attachments/assets/e6e2e23b-d278-4654-988d-bfe315815e95"/></div>
 
