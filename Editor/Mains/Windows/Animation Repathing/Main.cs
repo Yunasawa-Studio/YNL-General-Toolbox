@@ -1,7 +1,7 @@
 #if UNITY_EDITOR && YNL_EDITOR && YNL_UTILITIES
 using UnityEditor;
 using YNL.Editors.Visuals;
-using YNL.Extensions.Methods;
+using YNL.Utilities.Extensions;
 
 namespace YNL.GeneralToolbox.Windows.AnimationRepathing
 {

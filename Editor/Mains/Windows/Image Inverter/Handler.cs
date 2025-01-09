@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using YNL.Extensions.Methods;
+using YNL.Utilities.Extensions;
 
 namespace YNL.GeneralToolbox.Windows.ImageInverting
 {

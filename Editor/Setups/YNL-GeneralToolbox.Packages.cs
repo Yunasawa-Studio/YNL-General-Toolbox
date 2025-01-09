@@ -21,7 +21,7 @@ namespace YNL.GeneralToolbox.Setups
         private static AddRequest _addRequest;
         private static AddAndRemoveRequest _addAndRemoveRequest;
 
-        [MenuItem("🔗 YのL/▷ YNL - General Toolbox/🌐 Package Installer")]
+        [MenuItem("YのL/YNL - General Toolbox/Package Installer")]
         public static void ShowWindow()
         {
             if (_instance != null) return;

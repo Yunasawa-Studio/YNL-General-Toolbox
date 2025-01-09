@@ -1,7 +1,7 @@
 ﻿#if UNITY_EDITOR && YNL_EDITOR
 using UnityEditor;
 using UnityEngine;
-using YNL.Extensions.Methods;
+using YNL.Utilities.Extensions;
 using YNL.Editors.Visuals;
 using YNL.Editors.Extensions;
 using UnityEngine.UIElements;
@@ -35,7 +35,7 @@ namespace YNL.GeneralToolbox.Windows
         #endregion
 
 
-        [MenuItem("🔗 YのL/▷ YNL - General Toolbox/🎲 Editor Window")]
+        [MenuItem("YのL/YNL - General Toolbox/Editor Window")]
         public static void ShowWindow()
         {
             GeneralToolbox window = GetWindow<GeneralToolbox>("General Toolbox");

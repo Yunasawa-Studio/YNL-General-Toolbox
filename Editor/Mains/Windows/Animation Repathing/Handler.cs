@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
-using YNL.Extensions.Methods;
+using YNL.Utilities.Extensions;
 using System;
 
 namespace YNL.GeneralToolbox.Windows.AnimationRepathing

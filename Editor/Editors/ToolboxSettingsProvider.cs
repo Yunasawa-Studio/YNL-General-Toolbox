@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Editors.Extensions;
 using YNL.Editors.Visuals;
-using YNL.Extensions.Addons;
+using YNL.Utilities.Addons;
 
 namespace YNL.GeneralToolbox.Settings
 {

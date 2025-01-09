@@ -3,8 +3,8 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using YNL.Extensions.Methods;
-using YNL.Extensions.Addons;
+using YNL.Utilities.Extensions;
+using YNL.Utilities.Addons;
 using YNL.Editors.Visuals;
 using YNL.Editors.Extensions;
 
